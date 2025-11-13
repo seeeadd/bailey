@@ -1,0 +1,2462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bailey's AI Etsy Workshop - Free 3-Day Challenge</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           BAILEY'S DESIGN SYSTEM - CSS VARIABLES
+        ======================================== */
+        :root {
+            /* Colors */
+            --sage: #8FB589;
+            --rose: #E8B4B8;
+            --teal: #2C5F5D;
+            --cream: #FFF8F3;
+            --beige: #F5E6D8;
+            --charcoal: #2D2D2D;
+            --white: #FFFFFF;
+            --gold: #D4AF37;
+
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-script: 'Caveat', cursive;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        /* ========================================
+           RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            background: var(--cream);
+        }
+
+        /* ========================================
+           ANIMATIONS - ORGANIC MOVEMENTS
+        ======================================== */
+        @keyframes blob-morph {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        @keyframes gentle-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(232, 180, 184, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(232, 180, 184, 0.8)); }
+        }
+
+        /* ========================================
+           SECTION 1: HERO - EDITORIAL CHAOS
+        ======================================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: var(--teal);
+            overflow: hidden;
+            padding: 40px 20px 80px;
+        }
+
+        /* Watercolor overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, var(--sage) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, var(--rose) 0%, transparent 40%);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* Paper grain texture */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Countdown Timer - Organic Blobs */
+        .countdown-timer {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            margin-left: 20px;
+            flex-wrap: wrap;
+        }
+
+        .timer-blob {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--sage) 100%);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            border: 3px solid var(--rose);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: blob-morph 3s ease-in-out infinite, float 4s ease-in-out infinite;
+        }
+
+        .timer-blob:nth-child(1) {
+            transform: rotate(-5deg);
+            animation-delay: 0s;
+        }
+
+        .timer-blob:nth-child(2) {
+            transform: rotate(3deg);
+            animation-delay: 0.5s;
+        }
+
+        .timer-blob:nth-child(3) {
+            transform: rotate(-2deg);
+            animation-delay: 1s;
+        }
+
+        .timer-number {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-family: var(--font-script);
+            font-size: 14px;
+            color: var(--cream);
+            margin-top: 2px;
+        }
+
+        /* Audio Badge */
+        .audio-badge {
+            position: absolute;
+            top: 65px;
+            right: 100px;
+            background: var(--rose);
+            padding: 8px 16px;
+            transform: rotate(3deg);
+            font-family: var(--font-script);
+            font-size: 16px;
+            color: var(--charcoal);
+            clip-path: polygon(2% 0%, 100% 1%, 98% 100%, 0% 99%);
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        /* Pre-Headline */
+        .pre-headline {
+            font-family: var(--font-script);
+            font-size: 24px;
+            color: var(--cream);
+            margin-bottom: 20px;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .pre-headline::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--rose);
+            clip-path: polygon(0% 50%, 2% 100%, 5% 30%, 8% 80%, 12% 20%, 15% 90%, 18% 40%, 22% 70%, 25% 10%, 28% 60%, 32% 90%, 35% 30%, 38% 80%, 42% 20%, 45% 70%, 48% 40%, 52% 90%, 55% 20%, 58% 60%, 62% 30%, 65% 85%, 68% 40%, 72% 70%, 75% 15%, 78% 65%, 82% 35%, 85% 80%, 88% 25%, 92% 75%, 95% 40%, 98% 60%, 100% 50%);
+        }
+
+        /* Main Headline - Typography Explosion */
+        .main-headline {
+            margin-bottom: 40px;
+            margin-left: 20px;
+            max-width: 900px;
+        }
+
+        .headline-line {
+            display: block;
+            margin-bottom: -10px;
+        }
+
+        .hl-small {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--cream);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hl-tech {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            color: var(--charcoal);
+            background: var(--rose);
+            padding: 4px 12px;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .hl-massive {
+            font-family: var(--font-display);
+            font-size: clamp(60px, 12vw, 110px);
+            font-weight: 900;
+            font-style: italic;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sage) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            margin-left: 40px;
+        }
+
+        .hl-massive::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -20px;
+            right: -20px;
+            bottom: -10px;
+            background: var(--rose);
+            opacity: 0.2;
+            clip-path: polygon(3% 0%, 100% 2%, 97% 100%, 0% 98%);
+            z-index: -1;
+        }
+
+        .hl-script {
+            font-family: var(--font-script);
+            font-size: 32px;
+            color: var(--cream);
+            transform: rotate(-2deg);
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        .hl-money {
+            font-family: var(--font-display);
+            font-size: clamp(50px, 8vw, 72px);
+            font-weight: 900;
+            color: var(--sage);
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .hl-crossed {
+            font-family: var(--font-body);
+            font-size: 20px;
+            color: var(--cream);
+            opacity: 0.7;
+            text-decoration: line-through;
+            text-decoration-color: var(--rose);
+            text-decoration-thickness: 3px;
+            margin-left: 50px;
+        }
+
+        /* Subheadline */
+        .subheadline {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--cream);
+            max-width: 700px;
+            margin: 30px 0 40px 20px;
+        }
+
+        .highlight-marker {
+            background: linear-gradient(180deg, transparent 50%, rgba(212, 175, 55, 0.4) 50%);
+            padding: 2px 4px;
+        }
+
+        .margin-note {
+            font-family: var(--font-script);
+            color: var(--rose);
+            font-size: 16px;
+            display: inline-block;
+            transform: rotate(-3deg);
+            margin-left: 10px;
+        }
+
+        /* Primary CTA - Organic Blob Button */
+        .cta-blob {
+            position: relative;
+            display: inline-block;
+            margin: 40px 0 20px 20px;
+        }
+
+        .btn-blob {
+            background: linear-gradient(135deg, var(--rose) 0%, var(--sage) 50%, var(--cream) 100%);
+            border: 3px solid var(--charcoal);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            padding: 20px 50px;
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            animation: blob-morph 4s ease-in-out infinite;
+        }
+
+        .btn-blob:hover {
+            transform: scale(1.05) rotate(2deg);
+            animation: blob-morph 1s ease-in-out infinite, pulse-glow 1.5s ease-in-out infinite;
+        }
+
+        .btn-small-text {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+        }
+
+        .btn-large-text {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 900;
+            display: block;
+        }
+
+        .btn-arrow {
+            display: inline-block;
+            animation: wiggle 1s ease-in-out infinite;
+        }
+
+        /* SMS Disclaimer */
+        .sms-disclaimer {
+            font-family: var(--font-script);
+            font-size: 14px;
+            color: var(--rose);
+            margin: 10px 0 0 20px;
+            max-width: 500px;
+        }
+
+        /* Visual Collage */
+        .visual-collage {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 450px;
+            height: 500px;
+            display: none; /* Hidden on mobile, shown on desktop */
+        }
+
+        @media (min-width: 1024px) {
+            .visual-collage {
+                display: block;
+            }
+        }
+
+        .collage-element {
+            position: absolute;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .laptop-mockup {
+            width: 300px;
+            left: 0;
+            top: 50px;
+            transform: rotate(5deg);
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+            animation-delay: 0s;
+        }
+
+        .product-card {
+            width: 120px;
+            border-radius: 20px;
+            background: var(--white);
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-card-1 {
+            top: 20px;
+            right: 50px;
+            transform: rotate(-10deg);
+            animation-delay: 0.5s;
+        }
+
+        .product-card-2 {
+            bottom: 80px;
+            right: 20px;
+            transform: rotate(15deg);
+            animation-delay: 1s;
+        }
+
+        .product-card-3 {
+            bottom: 200px;
+            left: 80px;
+            transform: rotate(-5deg);
+            animation-delay: 1.5s;
+        }
+
+        .floating-dollar {
+            font-family: var(--font-script);
+            font-size: 48px;
+            color: var(--gold);
+            animation: float 3s ease-in-out infinite, gentle-spin 10s linear infinite;
+        }
+
+        .dollar-1 {
+            top: 50px;
+            right: 150px;
+            animation-delay: 0.3s;
+        }
+
+        .dollar-2 {
+            bottom: 100px;
+            right: 100px;
+            animation-delay: 1.2s;
+        }
+
+        /* ========================================
+           SECTION 2: QUALIFICATION - MAGAZINE SPREAD
+        ======================================== */
+        .qualification {
+            background: var(--cream);
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .qualification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperTexture'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .qualification-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Section Header - Editorial Style */
+        .section-header {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .header-word {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .hw-small {
+            font-family: var(--font-body);
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--charcoal);
+        }
+
+        .hw-massive {
+            font-family: var(--font-display);
+            font-size: clamp(60px, 10vw, 88px);
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--teal);
+            text-stroke: 2px var(--teal);
+            transform: rotate(-3deg);
+        }
+
+        .hw-script {
+            font-family: var(--font-script);
+            font-size: 56px;
+            color: var(--rose);
+            transform: rotate(2deg);
+            position: relative;
+        }
+
+        .hw-script::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            border: 3px solid var(--rose);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .hw-display {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--teal);
+            transform: rotate(1deg);
+        }
+
+        /* Subheader Banner - Sticky Note */
+        .subheader-banner {
+            background: var(--rose);
+            padding: 15px 25px;
+            margin: 30px 0;
+            transform: rotate(1deg);
+            position: relative;
+            clip-path: polygon(1% 0%, 100% 2%, 99% 100%, 0% 98%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .subheader-banner::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+
+        .subheader-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(139, 69, 19, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .subheader-text {
+            font-family: var(--font-script);
+            font-size: 22px;
+            color: var(--charcoal);
+            text-align: center;
+        }
+
+        /* Two-Column Grid */
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .two-column-grid {
+                grid-template-columns: 1fr 1.5fr;
+                gap: 60px;
+            }
+        }
+
+        /* Bailey's Photo Column */
+        .bailey-photo-column {
+            position: relative;
+        }
+
+        .photo-blob {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--teal) 100%);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            overflow: hidden;
+            border: 4px solid var(--charcoal);
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .photo-blob img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-annotation {
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            font-family: var(--font-script);
+            font-size: 24px;
+            color: var(--rose);
+            transform: rotate(5deg);
+        }
+
+        .photo-annotation::before {
+            content: '←';
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        /* Qualification Points */
+        .qualification-points {
+            padding: 20px 0;
+        }
+
+        .qual-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .qual-bullet {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .bullet-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--sage);
+        }
+
+        .bullet-star::before {
+            content: '★';
+            color: var(--rose);
+        }
+
+        .bullet-heart::before {
+            content: '♥';
+            color: var(--teal);
+        }
+
+        .bullet-flower::before {
+            content: '❀';
+            color: var(--sage);
+        }
+
+        .qual-text {
+            flex: 1;
+        }
+
+        .qual-text p {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--charcoal);
+        }
+
+        .qual-text em {
+            font-family: var(--font-script);
+            font-size: 20px;
+            color: var(--teal);
+            font-style: normal;
+        }
+
+        .qual-annotation {
+            font-family: var(--font-script);
+            font-size: 16px;
+            color: var(--rose);
+            margin-top: 5px;
+            display: block;
+            transform: rotate(-1deg);
+        }
+
+        /* Closing Statement */
+        .closing-statement {
+            background: var(--white);
+            border: 3px solid var(--sage);
+            padding: 25px;
+            margin-top: 50px;
+            transform: rotate(-1deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .closing-statement p {
+            font-family: var(--font-body);
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--charcoal);
+        }
+
+        .closing-statement .highlight-yes {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--teal);
+            background: linear-gradient(180deg, transparent 50%, rgba(143, 181, 137, 0.3) 50%);
+        }
+
+        /* ========================================
+           SECTION 3: SIMPLE CTA STRIP
+        ======================================== */
+        .simple-cta {
+            background: linear-gradient(135deg, var(--white) 0%, var(--cream) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .simple-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 29px,
+                rgba(143, 181, 137, 0.1) 29px,
+                rgba(143, 181, 137, 0.1) 30px
+            );
+            pointer-events: none;
+        }
+
+        .simple-cta-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-headline-mix {
+            margin-bottom: 40px;
+        }
+
+        .cta-hl-1 {
+            font-family: var(--font-body);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--charcoal);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .cta-hl-2 {
+            font-family: var(--font-script);
+            font-size: 42px;
+            color: var(--rose);
+            display: block;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .cta-hl-2::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 80px;
+            border: 3px solid var(--rose);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .cta-hl-3 {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 900;
+            font-style: italic;
+            color: var(--teal);
+            display: block;
+        }
+
+        /* ========================================
+           SECTION 4: EXPANDED STORY - ZINE AESTHETIC
+        ======================================== */
+        .expanded-story {
+            background: var(--cream);
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .expanded-story::before {
+            content: '';
+            position: absolute;
+            top: 100px;
+            right: 10%;
+            width: 60px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(192,192,192,0.3) 0%, rgba(192,192,192,0.1) 100%);
+            clip-path: polygon(20% 0%, 80% 0%, 90% 10%, 90% 90%, 50% 100%, 10% 90%, 10% 10%);
+            transform: rotate(15deg);
+        }
+
+        .expanded-story::after {
+            content: '';
+            position: absolute;
+            bottom: 150px;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(139, 69, 19, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Top Banner - Rubber Stamp */
+        .stamp-banner {
+            display: inline-block;
+            padding: 15px 30px;
+            border: 4px solid var(--rose);
+            border-radius: 5px;
+            transform: rotate(-2deg);
+            margin-bottom: 40px;
+            background: rgba(232, 180, 184, 0.1);
+        }
+
+        .stamp-text {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--rose);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-align: center;
+        }
+
+        /* Main Title - Ransom Note Style */
+        .ransom-title {
+            margin-bottom: 50px;
+        }
+
+        .ransom-word {
+            display: inline-block;
+            margin: 5px 8px;
+        }
+
+        .rw-1 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--teal);
+            transform: rotate(-3deg);
+        }
+
+        .rw-2 {
+            font-family: var(--font-script);
+            font-size: 52px;
+            color: var(--rose);
+            transform: rotate(2deg);
+        }
+
+        .rw-3 {
+            font-family: var(--font-body);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--charcoal);
+            background: var(--sage);
+            padding: 5px 15px;
+            transform: rotate(1deg);
+        }
+
+        .rw-4 {
+            font-family: var(--font-mono);
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--gold);
+            transform: rotate(-2deg);
+        }
+
+        .rw-5 {
+            font-family: var(--font-display);
+            font-size: 44px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--teal);
+            transform: rotate(3deg);
+        }
+
+        /* Author Header - Polaroid */
+        .author-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 15px;
+            background: var(--white);
+            width: fit-content;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transform: rotate(-2deg);
+        }
+
+        .author-photo {
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--teal) 100%);
+            border: 3px solid var(--white);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .author-name {
+            font-family: var(--font-script);
+            font-size: 28px;
+            color: var(--charcoal);
+        }
+
+        /* Story Body - Diary Entry */
+        .story-paragraph {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--charcoal);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .story-paragraph:nth-child(even) {
+            transform: rotate(0.5deg);
+        }
+
+        .story-paragraph:nth-child(odd) {
+            transform: rotate(-0.3deg);
+        }
+
+        .story-margin-note {
+            font-family: var(--font-script);
+            font-size: 16px;
+            color: var(--rose);
+            position: absolute;
+            right: -150px;
+            top: 0;
+            transform: rotate(5deg);
+            width: 120px;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .story-margin-note {
+                display: block;
+            }
+        }
+
+        .story-highlight {
+            background: linear-gradient(180deg, transparent 60%, rgba(212, 175, 55, 0.3) 60%);
+            padding: 2px 4px;
+        }
+
+        .story-circle {
+            border: 2px solid var(--rose);
+            border-radius: 50%;
+            padding: 2px 8px;
+            display: inline-block;
+        }
+
+        /* Call-Out Box - Torn Paper */
+        .callout-box {
+            background: var(--rose);
+            padding: 30px;
+            margin: 50px 0;
+            clip-path: polygon(2% 0%, 100% 3%, 98% 100%, 0% 97%);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .callout-box::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            width: 50px;
+            height: 25px;
+            background: rgba(255,255,255,0.4);
+            clip-path: polygon(0% 30%, 100% 0%, 100% 70%, 0% 100%);
+        }
+
+        .callout-box::after {
+            content: 'IMPORTANT!';
+            position: absolute;
+            top: -15px;
+            right: 50px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--rose);
+            background: var(--cream);
+            padding: 5px 15px;
+            border: 2px solid var(--rose);
+            transform: rotate(-5deg);
+        }
+
+        .callout-text {
+            font-family: var(--font-body);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           SECTION 5: WORKSHOP INTRO - POSTER STYLE
+        ======================================== */
+        .workshop-intro {
+            background: var(--teal);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workshop-intro::before {
+            content: '🌿';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: 50px;
+            left: -50px;
+            transform: rotate(-20deg);
+        }
+
+        .workshop-intro::after {
+            content: '🌿';
+            position: absolute;
+            font-size: 180px;
+            opacity: 0.1;
+            bottom: 50px;
+            right: -30px;
+            transform: rotate(25deg);
+        }
+
+        .workshop-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .workshop-header {
+            margin-bottom: 50px;
+        }
+
+        .wh-line {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .wh-free {
+            font-family: var(--font-script);
+            font-size: clamp(60px, 12vw, 100px);
+            color: var(--cream);
+            transform: rotate(-3deg);
+            display: inline-block;
+            text-shadow: 3px 3px 0 var(--rose);
+        }
+
+        .wh-ai-etsy {
+            font-family: var(--font-display);
+            font-size: clamp(50px, 10vw, 80px);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+        }
+
+        .wh-challenge {
+            font-family: var(--font-body);
+            font-size: clamp(40px, 8vw, 64px);
+            font-weight: 900;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+        }
+
+        .workshop-description {
+            font-family: var(--font-body);
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--cream);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* ========================================
+           SECTION 6: 3-DAY CARDS - TICKET DESIGN
+        ======================================== */
+        .three-day-cards {
+            background: var(--beige);
+            padding: 80px 20px;
+        }
+
+        .cards-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cards-title {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 900;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+
+        .cards-subtitle {
+            font-family: var(--font-script);
+            font-size: 28px;
+            color: var(--rose);
+        }
+
+        .ticket-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .ticket-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .ticket-card {
+            background: var(--white);
+            border: 3px dashed var(--teal);
+            border-right: 3px solid var(--teal);
+            padding: 40px 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .ticket-card:nth-child(1) {
+            transform: rotate(0deg);
+        }
+
+        .ticket-card:nth-child(2) {
+            transform: rotate(-2deg);
+        }
+
+        .ticket-card:nth-child(3) {
+            transform: rotate(2deg);
+        }
+
+        .ticket-card::before {
+            content: attr(data-ticket);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--teal);
+            opacity: 0.5;
+        }
+
+        .ticket-card::after {
+            content: 'ADMIT ONE';
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--teal);
+            opacity: 0.3;
+            letter-spacing: 0.2em;
+        }
+
+        .ticket-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-size: 120px;
+            font-weight: 900;
+            color: var(--sage);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .ticket-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ticket-day {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--rose);
+            margin-bottom: 15px;
+        }
+
+        .ticket-title {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .ticket-bullets {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .ticket-bullets li {
+            font-family: var(--font-body);
+            font-size: 16px;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .ticket-bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sage);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .ticket-note {
+            font-family: var(--font-script);
+            font-size: 16px;
+            color: var(--teal);
+            transform: rotate(-2deg);
+        }
+
+        .vip-stamp {
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            transform: translateY(-50%) rotate(15deg);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--rose);
+            background: rgba(232, 180, 184, 0.2);
+            border: 2px solid var(--rose);
+            padding: 5px 15px;
+            border-radius: 3px;
+        }
+
+        /* ========================================
+           SECTION 7: URGENCY BOX - BREAKING NEWS
+        ======================================== */
+        .urgency-box {
+            background: var(--white);
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .urgency-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 40px);
+            pointer-events: none;
+        }
+
+        .urgency-content {
+            max-width: 900px;
+            margin: 0 auto;
+            border: 4px solid var(--charcoal);
+            clip-path: polygon(0% 2%, 2% 0%, 98% 0%, 100% 2%, 100% 98%, 98% 100%, 2% 100%, 0% 98%);
+            padding: 50px 30px;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .urgency-content::before {
+            content: '';
+            position: absolute;
+            bottom: 50px;
+            right: 80px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(139, 69, 19, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .breaking-banner {
+            position: absolute;
+            top: 30px;
+            left: -10px;
+            background: var(--rose);
+            color: var(--white);
+            font-family: var(--font-mono);
+            font-size: 24px;
+            font-weight: 900;
+            padding: 10px 40px;
+            transform: rotate(-3deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .urgency-headline {
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .urg-word {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .urg-big {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 900;
+            color: var(--teal);
+        }
+
+        .urg-small {
+            font-family: var(--font-body);
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+
+        .urg-script {
+            font-family: var(--font-script);
+            font-size: 48px;
+            color: var(--rose);
+            transform: rotate(-5deg);
+        }
+
+        .urgency-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .urgency-timer-blob {
+            background: var(--teal);
+            color: var(--white);
+            padding: 20px 30px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            text-align: center;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        .urgency-timer-number {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 900;
+            display: block;
+        }
+
+        .urgency-timer-label {
+            font-family: var(--font-script);
+            font-size: 18px;
+            display: block;
+        }
+
+        .urgency-annotation {
+            font-family: var(--font-script);
+            font-size: 20px;
+            color: var(--rose);
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .urgency-arrows {
+            text-align: center;
+            font-size: 32px;
+            color: var(--rose);
+            margin: 20px 0;
+        }
+
+        /* ========================================
+           SECTION 8: TESTIMONIALS - POLAROID WALL
+        ======================================== */
+        .testimonials {
+            background:
+                linear-gradient(135deg, #8B7355 0%, #6B5345 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(139, 115, 85, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(107, 83, 69, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .testimonials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-title {
+            font-family: var(--font-script);
+            font-size: clamp(48px, 10vw, 80px);
+            color: var(--cream);
+            margin-bottom: 20px;
+        }
+
+        .testimonials-subtitle {
+            font-family: var(--font-body);
+            font-size: 20px;
+            color: var(--beige);
+        }
+
+        .polaroid-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .polaroid-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .polaroid-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .polaroid {
+            background: var(--white);
+            padding: 15px 15px 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .polaroid:nth-child(1) {
+            transform: rotate(-5deg);
+            animation-delay: 0s;
+        }
+
+        .polaroid:nth-child(2) {
+            transform: rotate(3deg);
+            animation-delay: 0.5s;
+        }
+
+        .polaroid:nth-child(3) {
+            transform: rotate(-2deg);
+            animation-delay: 1s;
+        }
+
+        .polaroid:nth-child(4) {
+            transform: rotate(4deg);
+            animation-delay: 1.5s;
+        }
+
+        .polaroid:nth-child(5) {
+            transform: rotate(-3deg);
+            animation-delay: 2s;
+        }
+
+        .polaroid:nth-child(6) {
+            transform: rotate(2deg);
+            animation-delay: 2.5s;
+        }
+
+        .polaroid::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 15px;
+            background: rgba(192,192,192,0.4);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+
+        .polaroid-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--beige) 0%, var(--sage) 100%);
+            margin-bottom: 15px;
+        }
+
+        .polaroid-content {
+            padding: 0 5px;
+        }
+
+        .polaroid-review {
+            font-family: var(--font-script);
+            font-size: 16px;
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            min-height: 80px;
+        }
+
+        .polaroid-name {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 5px;
+        }
+
+        .polaroid-stars {
+            color: var(--gold);
+            font-size: 16px;
+        }
+
+        /* ========================================
+           SECTION 9: BEFORE/AFTER - TORN PAPER SPLIT
+        ======================================== */
+        .before-after {
+            background: var(--cream);
+            padding: 80px 20px;
+            overflow: hidden;
+        }
+
+        .before-after-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .ba-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ba-title {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 900;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+
+        .ba-subtitle {
+            font-family: var(--font-script);
+            font-size: 28px;
+            color: var(--rose);
+        }
+
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .split-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .before-side {
+            background: linear-gradient(135deg, #D3D3D3 0%, #A8A8A8 100%);
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .before-side::before {
+            content: '☁️';
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.3;
+            top: 30px;
+            right: 30px;
+        }
+
+        .after-side {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--teal) 100%);
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .after-side::before {
+            content: '🌈';
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.5;
+            top: 30px;
+            right: 30px;
+        }
+
+        .side-label {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        .before-side .side-label {
+            color: var(--charcoal);
+        }
+
+        .after-side .side-label {
+            color: var(--white);
+        }
+
+        .side-content h3 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .before-side h3 {
+            color: var(--charcoal);
+            text-transform: lowercase;
+            font-weight: 400;
+        }
+
+        .after-side h3 {
+            color: var(--white);
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .side-list {
+            list-style: none;
+        }
+
+        .side-list li {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .before-side .side-list li {
+            color: var(--charcoal);
+        }
+
+        .before-side .side-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #8B0000;
+            font-weight: 700;
+        }
+
+        .after-side .side-list li {
+            color: var(--white);
+        }
+
+        .after-side .side-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* ========================================
+           FINAL CTA SECTION
+        ======================================== */
+        .final-cta {
+            background: var(--teal);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '✨';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            top: 50px;
+            left: 10%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .final-cta::after {
+            content: '✨';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            bottom: 50px;
+            right: 10%;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .final-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .final-headline {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 8vw, 64px);
+            font-weight: 900;
+            color: var(--cream);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .final-subheadline {
+            font-family: var(--font-script);
+            font-size: 32px;
+            color: var(--rose);
+            margin-bottom: 50px;
+        }
+
+        .final-btn-blob {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--sage) 50%, var(--rose) 100%);
+            border: 4px solid var(--white);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            padding: 30px 60px;
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--charcoal);
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            animation: blob-morph 4s ease-in-out infinite, pulse-glow 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .final-btn-blob:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* ========================================
+           FOOTER - HANDWRITTEN NOTE
+        ======================================== */
+        .footer {
+            background: var(--cream);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-signature {
+            font-family: var(--font-script);
+            font-size: 48px;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--charcoal);
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--teal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--teal);
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--rose);
+            border-bottom-color: var(--rose);
+        }
+
+        /* ========================================
+           MOBILE RESPONSIVE ADJUSTMENTS
+        ======================================== */
+        @media (max-width: 767px) {
+            .headline-line {
+                margin-bottom: 5px;
+            }
+
+            .hl-massive {
+                margin-left: 0;
+            }
+
+            .hl-script,
+            .hl-crossed {
+                margin-left: 0;
+            }
+
+            .audio-badge {
+                position: static;
+                display: inline-block;
+                margin: 20px 0;
+            }
+
+            .timer-blob {
+                width: 80px;
+                height: 75px;
+            }
+
+            .timer-number {
+                font-size: 40px;
+            }
+
+            .section-header {
+                text-align: center;
+            }
+
+            .header-word {
+                display: block;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================
+         SECTION 1: HERO - EDITORIAL CHAOS
+    ======================================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Countdown Timer -->
+            <div class="countdown-timer">
+                <div class="timer-blob">
+                    <div class="timer-number" id="days">03</div>
+                    <div class="timer-label">Days</div>
+                </div>
+                <div class="timer-blob">
+                    <div class="timer-number" id="hours">12</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-blob">
+                    <div class="timer-number" id="minutes">45</div>
+                    <div class="timer-label">Mins</div>
+                </div>
+            </div>
+
+            <!-- Audio Badge -->
+            <div class="audio-badge">SOUND ON 🔊</div>
+
+            <!-- Pre-Headline -->
+            <div class="pre-headline">
+                Give Me Just 3 Days & I'll Show You...
+            </div>
+
+            <!-- Main Headline -->
+            <div class="main-headline">
+                <span class="headline-line">
+                    <span class="hl-small">How To Build Your First</span>
+                </span>
+                <span class="headline-line">
+                    <span class="hl-tech">AI-Powered</span>
+                </span>
+                <span class="headline-line">
+                    <span class="hl-massive">ETSY SHOP</span>
+                </span>
+                <span class="headline-line">
+                    <span class="hl-script">That Produces</span>
+                </span>
+                <span class="headline-line">
+                    <span class="hl-money">$3-10K Monthly</span>
+                </span>
+                <span class="headline-line">
+                    <span class="hl-crossed">Without Social Media</span>
+                </span>
+            </div>
+
+            <!-- Subheadline -->
+            <div class="subheadline">
+                Even if you're a <span class="highlight-marker">complete beginner</span>, have zero design skills, and think "AI" sounds complicated <span class="margin-note">It's not!</span> — this free 3-day workshop will walk you through <span class="highlight-marker">everything</span> you need to launch your first profitable Etsy shop using AI.
+            </div>
+
+            <!-- Primary CTA -->
+            <div class="cta-blob">
+                <a href="#register" class="btn-blob">
+                    <span class="btn-small-text">YES! SAVE MY</span>
+                    <span class="btn-large-text">FREE SPOT <span class="btn-arrow">→</span></span>
+                </a>
+            </div>
+
+            <!-- SMS Disclaimer -->
+            <div class="sms-disclaimer">
+                *By signing up, you agree to receive text messages. Reply STOP to opt out anytime. Standard rates may apply. ✨
+            </div>
+
+            <!-- Visual Collage (Desktop Only) -->
+            <div class="visual-collage">
+                <div class="collage-element floating-dollar dollar-1">$</div>
+                <div class="collage-element floating-dollar dollar-2">$$</div>
+                <!-- Placeholder for laptop mockup and product cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 2: QUALIFICATION - MAGAZINE SPREAD
+    ======================================== -->
+    <section class="qualification">
+        <div class="qualification-content">
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="header-word hw-small">Is This</span>
+                <span class="header-word hw-massive">Workshop</span>
+                <span class="header-word hw-script">Perfect</span>
+                <span class="header-word hw-display">For You?</span>
+            </div>
+
+            <!-- Subheader Banner -->
+            <div class="subheader-banner">
+                <div class="subheader-text">
+                    If any of these sound like you, the answer is YES! 👇
+                </div>
+            </div>
+
+            <!-- Two-Column Grid -->
+            <div class="two-column-grid">
+                <!-- Bailey's Photo Column -->
+                <div class="bailey-photo-column">
+                    <div class="photo-blob">
+                        <!-- Placeholder for Bailey's photo -->
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--sage) 0%, var(--teal) 100%);"></div>
+                    </div>
+                    <div class="photo-annotation">That's me!</div>
+                </div>
+
+                <!-- Qualification Points -->
+                <div class="qualification-points">
+                    <div class="qual-item">
+                        <div class="qual-bullet">
+                            <div class="bullet-circle"></div>
+                        </div>
+                        <div class="qual-text">
+                            <p>You're <em>tired of the 9-5 grind</em> and want to build something that gives you freedom and flexibility</p>
+                            <span class="qual-annotation">Freedom is priceless! ✨</span>
+                        </div>
+                    </div>
+
+                    <div class="qual-item">
+                        <div class="qual-bullet bullet-star"></div>
+                        <div class="qual-text">
+                            <p>You've heard about people making money on Etsy, but have <em>no idea where to start</em> or what to sell</p>
+                        </div>
+                    </div>
+
+                    <div class="qual-item">
+                        <div class="qual-bullet bullet-heart"></div>
+                        <div class="qual-text">
+                            <p>You want to create <em>passive income</em> without showing your face, building a huge audience, or posting on social media daily</p>
+                            <span class="qual-annotation">No dancing required! 💃❌</span>
+                        </div>
+                    </div>
+
+                    <div class="qual-item">
+                        <div class="qual-bullet bullet-flower"></div>
+                        <div class="qual-text">
+                            <p>You're ready to learn how AI can do the <em>heavy lifting</em> (design, content creation, research) while you focus on growing your business</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Closing Statement -->
+            <div class="closing-statement">
+                <p>If you nodded your head to even ONE of these, then <span class="highlight-yes">YES</span> — this workshop was made for you! 🎯</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 3: SIMPLE CTA STRIP
+    ======================================== -->
+    <section class="simple-cta">
+        <div class="simple-cta-content">
+            <div class="cta-headline-mix">
+                <span class="cta-hl-1">Put Your Name Down</span>
+                <span class="cta-hl-2">(FOR FREE)</span>
+                <span class="cta-hl-3">Today...</span>
+            </div>
+
+            <div class="cta-blob">
+                <a href="#register" class="btn-blob">
+                    <span class="btn-small-text">CLAIM YOUR</span>
+                    <span class="btn-large-text">FREE SEAT <span class="btn-arrow">→</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 4: EXPANDED STORY - ZINE AESTHETIC
+    ======================================== -->
+    <section class="expanded-story">
+        <div class="story-content">
+            <!-- Top Banner -->
+            <div class="stamp-banner">
+                <div class="stamp-text">VERIFIED: $58K/MONTH - DEC 2024</div>
+            </div>
+
+            <!-- Main Title -->
+            <div class="ransom-title">
+                <span class="ransom-word rw-1">How I</span>
+                <span class="ransom-word rw-2">Built</span>
+                <span class="ransom-word rw-3">My</span>
+                <span class="ransom-word rw-4">$58K</span>
+                <span class="ransom-word rw-5">Etsy Empire</span>
+                <span class="ransom-word rw-1">With AI</span>
+            </div>
+
+            <!-- Author Header -->
+            <div class="author-header">
+                <div class="author-photo"></div>
+                <div class="author-name">From: Bailey ✨</div>
+            </div>
+
+            <!-- Story Body -->
+            <div class="story-body">
+                <p class="story-paragraph">
+                    Two years ago, I was stuck in a corporate job I hated, dreaming about freedom but having <span class="story-highlight">no idea how to make it happen</span>.
+                    <span class="story-margin-note">This was me!</span>
+                </p>
+
+                <p class="story-paragraph">
+                    I'd tried blogging (failed). I'd tried freelancing (burnout). I'd even tried dropshipping (nightmare). But then I discovered something that changed everything: <span class="story-circle">AI + Etsy</span>.
+                </p>
+
+                <p class="story-paragraph">
+                    The beauty of Etsy is that <span class="story-highlight">people are already there searching and ready to buy</span>. You don't need to build an audience from scratch or convince anyone to care about your brand.
+                    <span class="story-margin-note">Mind blown! 💥</span>
+                </p>
+
+                <p class="story-paragraph">
+                    And with AI tools, you can create professional-looking digital products in minutes — not hours or days. No design degree required. No expensive software. Just you, some simple tools, and a willingness to learn.
+                </p>
+
+                <p class="story-paragraph">
+                    In my first month, I made <span class="story-highlight">$347</span>. By month six, I was at <span class="story-highlight">$12K</span>. Now? I'm consistently pulling in <span class="story-circle">$50K+ per month</span>, and I work maybe 10-15 hours a week.
+                </p>
+            </div>
+
+            <!-- Call-Out Box -->
+            <div class="callout-box">
+                <p class="callout-text">
+                    I created this FREE workshop because I wish someone had shown me this path two years ago. It would've saved me SO much time, money, and frustration! ❤️
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 5: WORKSHOP INTRO - POSTER STYLE
+    ======================================== -->
+    <section class="workshop-intro">
+        <div class="workshop-content">
+            <div class="workshop-header">
+                <span class="wh-line">
+                    <span class="wh-free">FREE</span>
+                </span>
+                <span class="wh-line">
+                    <span class="wh-ai-etsy">AI Etsy</span>
+                </span>
+                <span class="wh-line">
+                    <span class="wh-challenge">Challenge</span>
+                </span>
+            </div>
+
+            <div class="workshop-description">
+                Join me for 3 days of hands-on training where I'll walk you through <strong>exactly</strong> how to set up, launch, and scale your first AI-powered Etsy shop — even if you're starting from zero!
+            </div>
+
+            <div class="cta-blob">
+                <a href="#register" class="btn-blob">
+                    <span class="btn-small-text">I WANT IN!</span>
+                    <span class="btn-large-text">SAVE MY SPOT <span class="btn-arrow">→</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 6: 3-DAY CARDS - TICKET DESIGN
+    ======================================== -->
+    <section class="three-day-cards">
+        <div class="cards-content">
+            <div class="cards-header">
+                <h2 class="cards-title">Here's What We'll Cover</h2>
+                <p class="cards-subtitle">Over 3 Powerful Days...</p>
+            </div>
+
+            <div class="ticket-container">
+                <!-- Day 1 Card -->
+                <div class="ticket-card" data-ticket="DAY-001">
+                    <div class="ticket-watermark">01</div>
+                    <div class="ticket-content">
+                        <div class="ticket-day">Day 1</div>
+                        <h3 class="ticket-title">Finding Your Profitable Niche</h3>
+                        <ul class="ticket-bullets">
+                            <li>How to use AI to research trending niches</li>
+                            <li>My "Product Validation Framework"</li>
+                            <li>Avoiding saturated markets</li>
+                            <li>Choosing your first 3 products to create</li>
+                        </ul>
+                        <p class="ticket-note">You'll leave with your niche chosen! ✓</p>
+                    </div>
+                    <div class="vip-stamp">VIP ACCESS</div>
+                </div>
+
+                <!-- Day 2 Card -->
+                <div class="ticket-card" data-ticket="DAY-002">
+                    <div class="ticket-watermark">02</div>
+                    <div class="ticket-content">
+                        <div class="ticket-day">Day 2</div>
+                        <h3 class="ticket-title">Creating AI Products That SELL</h3>
+                        <ul class="ticket-bullets">
+                            <li>The exact AI tools I use (many are FREE!)</li>
+                            <li>Step-by-step product creation walkthrough</li>
+                            <li>Design secrets that convert browsers to buyers</li>
+                            <li>Setting up your Etsy shop for success</li>
+                        </ul>
+                        <p class="ticket-note">You'll create your first product LIVE! 🎨</p>
+                    </div>
+                    <div class="vip-stamp">VIP ACCESS</div>
+                </div>
+
+                <!-- Day 3 Card -->
+                <div class="ticket-card" data-ticket="DAY-003">
+                    <div class="ticket-watermark">03</div>
+                    <div class="ticket-content">
+                        <div class="ticket-day">Day 3</div>
+                        <h3 class="ticket-title">Launch, Optimize & Scale to $10K+</h3>
+                        <ul class="ticket-bullets">
+                            <li>Writing listings that rank in Etsy search</li>
+                            <li>My "First 10 Sales" strategy</li>
+                            <li>How to get early reviews (ethically!)</li>
+                            <li>Scaling from $1K to $10K/month</li>
+                        </ul>
+                        <p class="ticket-note">You'll be ready to LAUNCH! 🚀</p>
+                    </div>
+                    <div class="vip-stamp">VIP ACCESS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 7: URGENCY BOX - BREAKING NEWS
+    ======================================== -->
+    <section class="urgency-box">
+        <div class="urgency-content">
+            <div class="breaking-banner">⚡ BREAKING ⚡</div>
+
+            <div class="urgency-headline">
+                <span class="urg-word urg-small">Only</span>
+                <span class="urg-word urg-big">247 SPOTS</span>
+                <span class="urg-word urg-small">Left For This</span>
+                <span class="urg-word urg-script">LIVE</span>
+                <span class="urg-word urg-small">Workshop!</span>
+            </div>
+
+            <div class="urgency-timer">
+                <div class="urgency-timer-blob">
+                    <span class="urgency-timer-number" id="urg-days">03</span>
+                    <span class="urgency-timer-label">Days</span>
+                </div>
+                <div class="urgency-timer-blob">
+                    <span class="urgency-timer-number" id="urg-hours">12</span>
+                    <span class="urgency-timer-label">Hours</span>
+                </div>
+                <div class="urgency-timer-blob">
+                    <span class="urgency-timer-number" id="urg-mins">45</span>
+                    <span class="urgency-timer-label">Mins</span>
+                </div>
+            </div>
+
+            <p class="urgency-annotation">
+                Once we hit capacity, registration CLOSES! Don't miss this! ⏰
+            </p>
+
+            <div class="urgency-arrows">
+                ↓ ↓ ↓
+            </div>
+
+            <div class="cta-blob">
+                <a href="#register" class="btn-blob">
+                    <span class="btn-small-text">GRAB YOUR</span>
+                    <span class="btn-large-text">SPOT NOW! <span class="btn-arrow">→</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 8: TESTIMONIALS - POLAROID WALL
+    ======================================== -->
+    <section class="testimonials">
+        <div class="testimonials-content">
+            <div class="testimonials-header">
+                <h2 class="testimonials-title">What Students Are Saying...</h2>
+                <p class="testimonials-subtitle">Real Results From Real People</p>
+            </div>
+
+            <div class="polaroid-grid">
+                <!-- Testimonial 1 -->
+                <div class="polaroid">
+                    <div class="polaroid-photo"></div>
+                    <div class="polaroid-content">
+                        <p class="polaroid-review">"I made my first $1,000 in just 3 weeks after Bailey's workshop! This is life-changing!"</p>
+                        <p class="polaroid-name">— Sarah M.</p>
+                        <div class="polaroid-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="polaroid">
+                    <div class="polaroid-photo"></div>
+                    <div class="polaroid-content">
+                        <p class="polaroid-review">"I was so skeptical about AI, but Bailey made it SO simple. Now I have 3 shops bringing in $8K/month!"</p>
+                        <p class="polaroid-name">— Jessica R.</p>
+                        <div class="polaroid-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="polaroid">
+                    <div class="polaroid-photo"></div>
+                    <div class="polaroid-content">
+                        <p class="polaroid-review">"Finally quit my 9-5! Making more now working 10 hours a week than I did in 40. Thank you Bailey! 🙏"</p>
+                        <p class="polaroid-name">— Michael T.</p>
+                        <div class="polaroid-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="polaroid">
+                    <div class="polaroid-photo"></div>
+                    <div class="polaroid-content">
+                        <p class="polaroid-review">"Best free workshop I've ever taken. Bailey gives SO much value! My shop launched in 4 days!"</p>
+                        <p class="polaroid-name">— Amanda K.</p>
+                        <div class="polaroid-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="polaroid">
+                    <div class="polaroid-photo"></div>
+                    <div class="polaroid-content">
+                        <p class="polaroid-review">"I'm a complete beginner and I actually DID this! First sale came 2 days after launch. Mind blown! 🤯"</p>
+                        <p class="polaroid-name">— David L.</p>
+                        <div class="polaroid-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="polaroid">
+                    <div class="polaroid-photo"></div>
+                    <div class="polaroid-content">
+                        <p class="polaroid-review">"Bailey's energy is contagious! She makes everything feel possible. Already at $4K in my second month!"</p>
+                        <p class="polaroid-name">— Lisa P.</p>
+                        <div class="polaroid-stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 9: BEFORE/AFTER - TORN PAPER SPLIT
+    ======================================== -->
+    <section class="before-after">
+        <div class="before-after-content">
+            <div class="ba-header">
+                <h2 class="ba-title">Your Transformation Awaits</h2>
+                <p class="ba-subtitle">Imagine going from THIS... to THAT! ✨</p>
+            </div>
+
+            <div class="split-container">
+                <!-- Before Side -->
+                <div class="before-side">
+                    <div class="side-label">BEFORE</div>
+                    <div class="side-content">
+                        <h3>struggling & stuck...</h3>
+                        <ul class="side-list">
+                            <li>Trading time for money in a job you don't love</li>
+                            <li>Overwhelmed by "make money online" information</li>
+                            <li>Watching others succeed while you stay stuck</li>
+                            <li>No idea where to start or what to sell</li>
+                            <li>Afraid of tech and complicated tools</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- After Side -->
+                <div class="after-side">
+                    <div class="side-label">AFTER</div>
+                    <div class="side-content">
+                        <h3>THRIVING & FREE!</h3>
+                        <ul class="side-list">
+                            <li>Running a profitable Etsy shop from anywhere</li>
+                            <li>Clear, simple system that actually WORKS</li>
+                            <li>YOU'RE the success story others watch</li>
+                            <li>Complete clarity on your niche and products</li>
+                            <li>Confidently using AI like a pro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FINAL CTA SECTION
+    ======================================== -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2 class="final-headline">Ready to Start Your Etsy Success Story?</h2>
+            <p class="final-subheadline">Your future self will thank you! ✨</p>
+
+            <a href="#register" class="final-btn-blob">
+                CLAIM MY FREE SPOT NOW! →
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="footer-signature">xoxo, Bailey</div>
+        <p class="footer-text">© 2025 Bailey Vann AI. All rights reserved.</p>
+        <p class="footer-text">Made with ❤️ and lots of coffee ☕</p>
+        <div class="footer-links">
+            <a href="#privacy" class="footer-link">Privacy Policy</a>
+            <a href="#terms" class="footer-link">Terms of Service</a>
+            <a href="#contact" class="footer-link">Contact</a>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         JAVASCRIPT - COUNTDOWN TIMER
+    ======================================== -->
+    <script>
+        // Simple countdown timer (counting down from 3 days, 12 hours, 45 minutes)
+        function updateCountdown() {
+            // Set target date (3 days from now for demo)
+            const target = new Date();
+            target.setDate(target.getDate() + 3);
+            target.setHours(target.getHours() + 12);
+            target.setMinutes(target.getMinutes() + 45);
+
+            function update() {
+                const now = new Date().getTime();
+                const distance = target - now;
+
+                if (distance > 0) {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                    // Update hero timer
+                    document.getElementById('days').textContent = String(days).padStart(2, '0');
+                    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+
+                    // Update urgency timer
+                    document.getElementById('urg-days').textContent = String(days).padStart(2, '0');
+                    document.getElementById('urg-hours').textContent = String(hours).padStart(2, '0');
+                    document.getElementById('urg-mins').textContent = String(minutes).padStart(2, '0');
+                }
+            }
+
+            update();
+            setInterval(update, 60000); // Update every minute
+        }
+
+        updateCountdown();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
