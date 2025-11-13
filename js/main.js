@@ -1,6 +1,6 @@
 // ============================================
-// BAILEY VANN CREATIVE AI EMPIRE
-// Workshop Opt-in Page JavaScript
+// BAILEY VANN - CREATIVE AI EMPIRE
+// Main JavaScript for Landing Page
 // ============================================
 
 // ============================================
@@ -8,43 +8,40 @@
 // ============================================
 
 function initCountdown() {
-    // Set target date: December 2, 2025, 7:00 PM EST
+    // Target: December 2, 2025 at 7PM EST
     const targetDate = new Date('2025-12-02T19:00:00-05:00').getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = targetDate - now;
 
-        // Calculate time units
+        if (distance < 0) {
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            return;
+        }
+
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Update DOM
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
 
-        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
-        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
-
-        // If countdown is finished
-        if (distance < 0) {
-            clearInterval(countdownInterval);
-            if (daysEl) daysEl.textContent = '00';
-            if (hoursEl) hoursEl.textContent = '00';
-            if (minutesEl) minutesEl.textContent = '00';
-            if (secondsEl) secondsEl.textContent = '00';
+        // Update sticky counter
+        const daysUntil = document.getElementById('daysUntil');
+        if (daysUntil) {
+            daysUntil.textContent = days;
         }
     }
 
-    // Update countdown immediately and then every second
     updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown, 1000);
 }
 
 // ============================================
@@ -58,14 +55,14 @@ function initFAQ() {
         const question = item.querySelector('.faq-question');
 
         question.addEventListener('click', () => {
-            // Close other open items
+            // Close other open FAQs
             faqItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
                 }
             });
 
-            // Toggle current item
+            // Toggle current FAQ
             item.classList.toggle('active');
         });
     });
@@ -82,49 +79,27 @@ function initFormHandling() {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const firstName = document.getElementById('firstName').value;
-            const email = document.getElementById('email').value;
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
 
-            // Basic validation
             if (!firstName || !email) {
-                alert('Please fill in all fields.');
+                showMessage('Please fill in all fields.', 'error');
                 return;
             }
 
             if (!isValidEmail(email)) {
-                alert('Please enter a valid email address.');
+                showMessage('Please enter a valid email address.', 'error');
                 return;
             }
 
-            // Here you would normally send the data to your email service provider
-            // For now, we'll just show a success message
+            // Here you would integrate with your email service provider
+            // For now, just show success message
             console.log('Form submitted:', { firstName, email });
 
-            // Show success message
-            showSuccessMessage(form);
-
-            // Reset form
+            showMessage('✓ Success! Check your email for workshop details.', 'success');
             form.reset();
         });
     }
-
-    // Add form handling to all CTA buttons
-    const ctaButtons = document.querySelectorAll('.cta-button:not([type="submit"])');
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Scroll to the form
-            const formCard = document.querySelector('.form-card');
-            if (formCard) {
-                formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Focus the first input
-                setTimeout(() => {
-                    const firstInput = document.getElementById('firstName');
-                    if (firstInput) firstInput.focus();
-                }, 500);
-            }
-        });
-    });
 }
 
 function isValidEmail(email) {
@@ -132,43 +107,136 @@ function isValidEmail(email) {
     return re.test(email);
 }
 
-function showSuccessMessage(form) {
-    const successMsg = document.createElement('div');
-    successMsg.className = 'success-message';
-    successMsg.innerHTML = `
-        <p style="color: #7B9F8C; font-weight: 600; text-align: center; padding: 16px; background: rgba(123, 159, 140, 0.1); border-radius: 8px; margin-top: 16px;">
-            ✓ Success! Check your email for workshop details.
-        </p>
+function showMessage(message, type) {
+    const form = document.getElementById('optinForm');
+    const existingMsg = form.querySelector('.form-message');
+
+    if (existingMsg) {
+        existingMsg.remove();
+    }
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `form-message ${type}`;
+    messageDiv.style.cssText = `
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        ${type === 'success'
+            ? 'background: rgba(123, 159, 140, 0.1); color: #7B9F8C;'
+            : 'background: rgba(229, 62, 62, 0.1); color: #E53E3E;'}
     `;
+    messageDiv.textContent = message;
 
-    form.appendChild(successMsg);
+    form.appendChild(messageDiv);
 
-    setTimeout(() => {
-        successMsg.remove();
-    }, 5000);
+    if (type === 'success') {
+        setTimeout(() => messageDiv.remove(), 5000);
+    }
 }
 
 // ============================================
-// SCROLL ANIMATIONS
+// SCROLL TO FORM
+// ============================================
+
+function scrollToForm() {
+    const formCard = document.getElementById('formCard');
+    if (formCard) {
+        formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => {
+            const firstInput = document.getElementById('firstName');
+            if (firstInput) firstInput.focus();
+        }, 500);
+    }
+}
+
+// Make scrollToForm globally available
+window.scrollToForm = scrollToForm;
+
+// ============================================
+// SCROLL ANIMATIONS (AOS-like)
 // ============================================
 
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('aos-animate');
             }
         });
     }, observerOptions);
 
-    // Observe elements that should animate on scroll
-    const animateElements = document.querySelectorAll('.qualification-card, .milestone-card, .outcome-card, .testimonial-card');
-    animateElements.forEach(el => observer.observe(el));
+    // Observe all elements with data-aos attribute
+    document.querySelectorAll('[data-aos]').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// ============================================
+// TESTIMONIAL FILTERING
+// ============================================
+
+function initTestimonialFilters() {
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            const filter = pill.getAttribute('data-filter');
+
+            // Update active pill
+            filterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+
+            // Filter testimonials
+            testimonialCards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+
+                if (filter === 'all' || categories.includes(filter)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+// ============================================
+// STICKY COUNTER
+// ============================================
+
+function initStickyCounter() {
+    const stickyCounter = document.getElementById('stickyCounter');
+    const challengeSection = document.getElementById('challenge');
+
+    if (!stickyCounter || !challengeSection) return;
+
+    window.addEventListener('scroll', () => {
+        const challengeRect = challengeSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Show sticky counter when challenge section is out of view
+        if (challengeRect.bottom < 0) {
+            stickyCounter.classList.add('visible');
+        } else {
+            stickyCounter.classList.remove('visible');
+        }
+    });
 }
 
 // ============================================
@@ -179,27 +247,61 @@ function initSpotsAnimation() {
     const spotsElement = document.getElementById('spotsRemaining');
     if (!spotsElement) return;
 
-    // Simulate spots decreasing
     let spots = parseInt(spotsElement.textContent);
 
+    // Simulate spots decreasing occasionally
     setInterval(() => {
         if (spots > 100 && Math.random() > 0.7) {
             spots--;
             spotsElement.textContent = spots;
 
-            // Animate the number change
+            // Animate the change
             spotsElement.style.transform = 'scale(1.2)';
-            spotsElement.style.color = '#E53E3E';
-
             setTimeout(() => {
                 spotsElement.style.transform = 'scale(1)';
             }, 300);
+
+            // Update progress bar
+            const progressFill = document.querySelector('.progress-fill');
+            if (progressFill) {
+                const percentage = ((420 - spots) / 420) * 100;
+                progressFill.style.width = percentage + '%';
+            }
         }
-    }, 15000); // Check every 15 seconds
+    }, 20000); // Check every 20 seconds
 }
 
 // ============================================
-// SMOOTH SCROLL FOR ANCHOR LINKS
+// VIDEO PLAYER
+// ============================================
+
+function initVideoPlayer() {
+    const vslThumbnail = document.querySelector('.vsl-thumbnail');
+
+    if (vslThumbnail) {
+        vslThumbnail.addEventListener('click', () => {
+            // Here you would replace with actual video embed
+            // For now, just show an alert
+            alert('VSL video would play here. Replace this with your actual video embed code.');
+
+            // Example of embedding a video:
+            // const vslPlayer = document.querySelector('.vsl-player');
+            // vslPlayer.innerHTML = `
+            //     <iframe
+            //         width="100%"
+            //         height="100%"
+            //         src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1"
+            //         frameborder="0"
+            //         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            //         allowfullscreen>
+            //     </iframe>
+            // `;
+        });
+    }
+}
+
+// ============================================
+// SMOOTH SCROLL FOR HASH LINKS
 // ============================================
 
 function initSmoothScroll() {
@@ -218,140 +320,98 @@ function initSmoothScroll() {
 }
 
 // ============================================
-// VIDEO PLACEHOLDER CLICK HANDLER
+// PARALLAX EFFECTS
 // ============================================
 
-function initVideoPlaceholder() {
-    const videoPlaceholder = document.querySelector('.video-placeholder');
-
-    if (videoPlaceholder) {
-        videoPlaceholder.addEventListener('click', () => {
-            // Here you would replace the placeholder with an actual video embed
-            // For now, we'll just show an alert
-            alert('Video would play here. In production, this would embed your actual VSL video.');
-
-            // Example of how you might embed a video:
-            // const videoWrapper = document.querySelector('.video-wrapper');
-            // videoWrapper.innerHTML = `
-            //     <iframe
-            //         width="100%"
-            //         height="100%"
-            //         src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1"
-            //         frameborder="0"
-            //         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            //         allowfullscreen>
-            //     </iframe>
-            // `;
-        });
-    }
-}
-
-// ============================================
-// STICKY FORM CARD ON SCROLL
-// ============================================
-
-function initStickyForm() {
-    const formCard = document.querySelector('.form-card');
-    if (!formCard) return;
-
-    const heroSection = document.querySelector('.hero-section');
-    if (!heroSection) return;
-
-    let isSticky = true;
+function initParallax() {
+    const parallaxElements = document.querySelectorAll('.hero-bg-wash');
 
     window.addEventListener('scroll', () => {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        const scrollPosition = window.scrollY;
+        const scrolled = window.pageYOffset;
 
-        if (scrollPosition > heroBottom && isSticky) {
-            formCard.style.position = 'relative';
-            formCard.style.top = '0';
-            isSticky = false;
-        } else if (scrollPosition <= heroBottom && !isSticky) {
-            formCard.style.position = 'sticky';
-            formCard.style.top = 'var(--space-md)';
-            isSticky = true;
-        }
+        parallaxElements.forEach(el => {
+            const speed = 0.5;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
     });
 }
 
 // ============================================
-// PARALLAX EFFECT FOR BACKGROUND ELEMENTS
+// INTERSECTION OBSERVER FOR ANIMATIONS
 // ============================================
 
-function initParallax() {
-    const watercolorBg = document.querySelector('.watercolor-background');
+function observeElements() {
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px'
+    };
 
-    if (watercolorBg) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            watercolorBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
         });
-    }
+    }, observerOptions);
+
+    // Observe key sections
+    document.querySelectorAll('.qual-card, .milestone, .day-card, .outcome-card, .testimonial-card').forEach(el => {
+        observer.observe(el);
+    });
 }
 
 // ============================================
-// ANIMATE NUMBERS ON SCROLL
+// LOADING ANIMATION
 // ============================================
 
-function animateNumber(element, target, duration = 1000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = Math.round(target);
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.round(current);
-        }
-    }, 16);
+function initPageLoad() {
+    // Fade in page
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.6s ease';
+        document.body.style.opacity = '1';
+    }, 100);
 }
 
 // ============================================
-// INITIALIZE ALL FUNCTIONS
+// INITIALIZE ALL
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Bailey Vann Workshop Page Loaded');
+    console.log('Bailey Vann Workshop Page - Initialized');
 
     // Initialize all features
+    initPageLoad();
     initCountdown();
     initFAQ();
     initFormHandling();
     initScrollAnimations();
+    initTestimonialFilters();
+    initStickyCounter();
     initSpotsAnimation();
+    initVideoPlayer();
     initSmoothScroll();
-    initVideoPlaceholder();
-    initStickyForm();
     initParallax();
+    observeElements();
 
-    // Add loading animation
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
-
-    // Track scroll depth for analytics (optional)
+    // Log scroll depth for analytics (optional)
     let maxScroll = 0;
     window.addEventListener('scroll', () => {
         const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
         if (scrollPercent > maxScroll) {
             maxScroll = scrollPercent;
-            // You could send this to your analytics platform
-            console.log(`Max scroll depth: ${Math.round(maxScroll)}%`);
+            // Could send to analytics here
+            if (maxScroll > 25 && maxScroll < 26) console.log('User scrolled 25%');
+            if (maxScroll > 50 && maxScroll < 51) console.log('User scrolled 50%');
+            if (maxScroll > 75 && maxScroll < 76) console.log('User scrolled 75%');
         }
     });
 });
 
 // ============================================
-// HELPER FUNCTIONS
+// UTILITY FUNCTIONS
 // ============================================
 
-// Debounce function for performance
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -364,7 +424,6 @@ function debounce(func, wait) {
     };
 }
 
-// Check if element is in viewport
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -376,14 +435,23 @@ function isInViewport(element) {
 }
 
 // ============================================
-// EXPORT FOR TESTING (if needed)
+// PERFORMANCE OPTIMIZATION
 // ============================================
 
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        initCountdown,
-        initFAQ,
-        initFormHandling,
-        isValidEmail
-    };
+// Lazy load images if you add them later
+function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
 }
