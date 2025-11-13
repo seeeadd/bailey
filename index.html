@@ -3,92 +3,1041 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free AI Etsy Workshop - Bailey Vann | Build a $3-10K/Month Digital Shop</title>
-    <meta name="description" content="Join Bailey Vann's free 3-day live workshop and learn how to build a profitable Etsy shop selling $3 digital files using AI - no tech skills or social media required.">
-
-    <!-- Google Fonts -->
+    <title>Free 3-Day AI Etsy Workshop with Bailey Vann | Build Your $3-10K/Month Digital Product Shop</title>
+    <meta name="description" content="Join Bailey Vann's free 3-day live workshop and discover how to build a profitable Etsy shop selling digital products using AI—even if you're not techy.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ================================================
+           CSS VARIABLES & FOUNDATION
+           ================================================ */
+        :root {
+            --color-page-bg: #061411;
+            --color-page-bg-gradient-top: #071B17;
+            --color-page-bg-gradient-bottom: #130E0A;
+
+            --color-card: #FFF8F2;
+            --color-card-alt: #FBEDE3;
+            --color-border-subtle: #E2D0C0;
+
+            --color-accent: #0E3D34;
+            --color-accent-soft: #DDEBE6;
+            --color-accent-secondary: #C86B3D;
+            --color-highlight: #F4C26A;
+
+            --color-text-main: #241913;
+            --color-text-muted: #84736A;
+            --color-text-on-accent: #FFFFFF;
+
+            --radius-lg: 26px;
+            --radius-md: 18px;
+            --radius-pill: 999px;
+
+            --shadow-soft: 0 22px 60px rgba(0,0,0,0.35);
+            --max-width: 1120px;
+
+            --font-serif: "Playfair Display", "Georgia", serif;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--color-page-bg-gradient-top) 0%, var(--color-page-bg-gradient-bottom) 100%);
+            min-height: 100vh;
+            font-family: var(--font-sans);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ================================================
+           TYPOGRAPHY
+           ================================================ */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 52px);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: clamp(28px, 5vw, 42px);
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: clamp(22px, 4vw, 32px);
+            margin-bottom: 12px;
+        }
+
+        h4 {
+            font-size: clamp(18px, 3vw, 24px);
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* ================================================
+           BUTTONS & INPUTS
+           ================================================ */
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--color-accent);
+            color: var(--color-text-on-accent);
+            border: none;
+            border-radius: var(--radius-pill);
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(14, 61, 52, 0.4);
+            font-family: var(--font-sans);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #0A2F28;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(14, 61, 52, 0.5);
+        }
+
+        .btn-large {
+            padding: 22px 50px;
+            font-size: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--color-border-subtle);
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-family: var(--font-sans);
+            background: #FFFFFF;
+            color: var(--color-text-main);
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        /* ================================================
+           UTILITY CLASSES
+           ================================================ */
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(14, 61, 52, 0.1);
+            border: 2px solid var(--color-accent);
+            border-radius: var(--radius-pill);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+
+        .pill-badge-light {
+            background: rgba(244, 194, 106, 0.15);
+            border-color: var(--color-highlight);
+            color: var(--color-accent);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .card {
+            background: var(--color-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .card-alt {
+            background: var(--color-card-alt);
+        }
+
+        /* ================================================
+           SECTION: HERO
+           ================================================ */
+        .hero-section {
+            position: relative;
+            padding: 80px 0 100px;
+            background: radial-gradient(ellipse at top, rgba(14, 61, 52, 0.2) 0%, transparent 70%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        @media (min-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .hero-left h1 {
+            color: var(--color-card);
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            color: var(--color-card-alt);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .hero-bullets {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .hero-bullets li {
+            padding-left: 32px;
+            position: relative;
+            margin-bottom: 16px;
+            color: var(--color-card);
+            font-size: 17px;
+        }
+
+        .hero-bullets li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-highlight);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .vsl-mockup {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #0E3D34 0%, #0A2F28 100%);
+            border-radius: var(--radius-lg);
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .vsl-mockup::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255, 255, 255, 0.02) 10px,
+                    rgba(255, 255, 255, 0.02) 20px
+                );
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--color-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 20px solid var(--color-accent);
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 4px;
+        }
+
+        .form-card {
+            background: var(--color-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 20px;
+        }
+
+        .form-card h3 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: var(--color-text-main);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-text-main);
+        }
+
+        .form-meta {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
+        .form-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--color-text-muted);
+        }
+
+        .form-meta-row svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /* ================================================
+           SECTION: IS THIS FOR YOU
+           ================================================ */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-card {
+            background: var(--color-card);
+            border-radius: var(--radius-lg);
+            padding: 60px 50px;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 40px;
+        }
+
+        .qualification-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .qualification-grid {
+                grid-template-columns: 1fr 1px 1fr;
+            }
+        }
+
+        .qualification-divider {
+            background: linear-gradient(180deg, transparent, var(--color-border-subtle), transparent);
+        }
+
+        .qualification-col h4 {
+            color: var(--color-accent);
+            margin-bottom: 24px;
+        }
+
+        .qualification-list {
+            list-style: none;
+        }
+
+        .qualification-list li {
+            padding-left: 36px;
+            position: relative;
+            margin-bottom: 18px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .qualification-list.for-you li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .qualification-list.not-for-you li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-secondary);
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .commitment-line {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--color-accent-soft);
+            border-left: 4px solid var(--color-accent);
+            border-radius: var(--radius-md);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        /* ================================================
+           SECTION: BAILEY STORY
+           ================================================ */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        @media (min-width: 900px) {
+            .story-grid {
+                grid-template-columns: 350px 1fr;
+            }
+        }
+
+        .story-left {
+            text-align: center;
+        }
+
+        .story-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-highlight) 100%);
+            margin: 0 auto 30px;
+            box-shadow: 0 16px 48px rgba(14, 61, 52, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .stat-strip {
+            background: var(--color-accent);
+            color: var(--color-text-on-accent);
+            padding: 20px 24px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            line-height: 1.8;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .story-right p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .paradigm-shift {
+            margin-top: 40px;
+            padding: 40px;
+            background: var(--color-card-alt);
+            border-radius: var(--radius-md);
+        }
+
+        .paradigm-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .paradigm-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .paradigm-col h5 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-family: var(--font-sans);
+        }
+
+        .paradigm-col.old h5 {
+            color: var(--color-accent-secondary);
+        }
+
+        .paradigm-col.new h5 {
+            color: var(--color-accent);
+        }
+
+        .paradigm-col ul {
+            list-style: none;
+            font-size: 15px;
+        }
+
+        .paradigm-col ul li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .paradigm-col ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+
+        /* ================================================
+           SECTION: CHALLENGE / 3 DAYS
+           ================================================ */
+        .challenge-card {
+            background: var(--color-card);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            box-shadow: var(--shadow-soft);
+            border: 3px solid var(--color-accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-ribbon {
+            background: var(--color-accent);
+            color: var(--color-text-on-accent);
+            text-align: center;
+            padding: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: -50px -50px 30px;
+        }
+
+        .days-band {
+            background: var(--color-card-alt);
+            padding: 80px 0;
+            margin: 80px 0;
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .days-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .day-card {
+            background: var(--color-card);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .day-card .pill-badge {
+            font-size: 12px;
+            padding: 8px 16px;
+        }
+
+        .day-card h4 {
+            margin-top: 16px;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+
+        .day-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .day-card ul li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 14px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .day-card ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        .day-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--color-accent-soft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        /* ================================================
+           SECTION: SCARCITY / COUNTDOWN
+           ================================================ */
+        .scarcity-card {
+            background: var(--color-card);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        .scarcity-bullets {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scarcity-bullets li {
+            padding-left: 36px;
+            position: relative;
+            margin-bottom: 16px;
+            font-size: 17px;
+        }
+
+        .scarcity-bullets li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            font-size: 22px;
+        }
+
+        .countdown-bar {
+            background: var(--color-card-alt);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            margin: 40px 0;
+        }
+
+        .countdown-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-unit {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: var(--font-serif);
+            color: var(--color-accent);
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-text {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .catch-paragraph {
+            max-width: 700px;
+            margin: 30px auto;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* ================================================
+           SECTION: SOCIAL PROOF
+           ================================================ */
+        .proof-band {
+            background: var(--color-card-alt);
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        @media (min-width: 640px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background: var(--color-card);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-highlight) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--color-text-main);
+        }
+
+        .testimonial-tag {
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        .testimonial-quote {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--color-text-main);
+        }
+
+        /* ================================================
+           SECTION: BEFORE / AFTER
+           ================================================ */
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        @media (min-width: 768px) {
+            .before-after-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .before-col {
+            background: #F0E4D9;
+            padding: 50px 40px;
+        }
+
+        .after-col {
+            background: var(--color-card);
+            padding: 50px 40px;
+        }
+
+        .before-col h3,
+        .after-col h3 {
+            margin-bottom: 24px;
+        }
+
+        .before-col h3 {
+            color: var(--color-accent-secondary);
+        }
+
+        .after-col h3 {
+            color: var(--color-accent);
+        }
+
+        .before-after-grid ul {
+            list-style: none;
+        }
+
+        .before-after-grid ul li {
+            padding-left: 32px;
+            position: relative;
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .before-col ul li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-secondary);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .after-col ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* ================================================
+           SECTION: FAQ
+           ================================================ */
+        .faq-list {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .faq-item {
+            background: var(--color-card);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text-main);
+        }
+
+        /* ================================================
+           FINAL CTA STRIP
+           ================================================ */
+        .final-cta {
+            background: var(--color-accent);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            margin: 60px 0;
+        }
+
+        .final-cta h3 {
+            color: var(--color-text-on-accent);
+            margin-bottom: 24px;
+        }
+
+        .final-cta .btn {
+            background: var(--color-card);
+            color: var(--color-accent);
+        }
+
+        .final-cta .btn:hover {
+            background: var(--color-card-alt);
+        }
+
+        /* ================================================
+           MOBILE RESPONSIVENESS
+           ================================================ */
+        @media (max-width: 767px) {
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-card {
+                padding: 40px 24px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .form-card {
+                position: static;
+            }
+
+            .hero-section {
+                padding: 50px 0 60px;
+            }
+
+            .qualification-divider {
+                height: 1px;
+                width: 100%;
+            }
+
+            .days-band {
+                padding: 50px 0;
+                margin: 50px 0;
+            }
+
+            .challenge-ribbon {
+                margin: -50px -24px 30px;
+            }
+
+            .story-photo {
+                width: 180px;
+                height: 180px;
+                font-size: 60px;
+            }
+        }
+
+        /* ================================================
+           PATTERN & TEXTURE
+           ================================================ */
+        .pattern-dots {
+            position: relative;
+        }
+
+        .pattern-dots::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(14, 61, 52, 0.08) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- SECTION 1: HERO -->
-    <section class="hero" id="hero">
-        <div class="hero-bg-wash"></div>
-
+    <!-- ================================================
+         SECTION 1: HERO
+         ================================================ -->
+    <section class="hero-section pattern-dots">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-grid">
+                <!-- LEFT: Headline + VSL -->
                 <div class="hero-left">
-                    <div class="live-badge">
-                        <span class="pulse-dot"></span>
-                        <span>LIVE WORKSHOP</span>
+                    <div class="pill-badge">
+                        <span>●</span> FREE LIVE WORKSHOP
                     </div>
 
-                    <h1 class="hero-headline">
-                        How I Am Using AI To Build $3–10K/Month Etsy Shops Selling $3 Digital Files… Without Being 'Techy' Or Posting On Social Media
-                    </h1>
+                    <h1>How 35–55 Year Old Women Are Using AI To Build $3–10K/Month Etsy Shops Selling $3 Digital Files… Without Being 'Techy' Or Posting On Social Media</h1>
 
-                    <p class="hero-subhead">
-                        Even if you've tried Etsy before, feel late to the AI trend, and only have 5–10 hours a week.
-                    </p>
+                    <p class="hero-subhead">Even if you've tried Etsy before, feel late to the AI trend, and only have 5–10 hours a week.</p>
 
-                    <div class="vsl-container">
-                        <div class="vsl-player">
-                            <div class="vsl-thumbnail">
-                                <div class="play-button">
-                                    <svg width="80" height="80" viewBox="0 0 80 80">
-                                        <circle cx="40" cy="40" r="40" fill="white" opacity="0.95"/>
-                                        <path d="M32 24L56 40L32 56V24Z" fill="#7B9F8C"/>
-                                    </svg>
-                                </div>
-                                <p class="vsl-cta-text">Watch My Personal Message</p>
-                            </div>
-                        </div>
+                    <ul class="hero-bullets">
+                        <li>Discover the data-backed AI system Bailey used to pass $1M in Etsy sales</li>
+                        <li>See live examples of shops making $10K–$40K/month selling simple $3 digital files</li>
+                        <li>Get the exact research method, AI prompts, and traffic strategy—no guessing</li>
+                    </ul>
+
+                    <!-- VSL MOCKUP -->
+                    <div class="vsl-mockup">
+                        <div class="play-button"></div>
                     </div>
-
-                    <button class="cta-primary" onclick="scrollToForm()">
-                        Save My Free Spot For The Live AI Etsy Workshop
-                    </button>
                 </div>
 
+                <!-- RIGHT: OPT-IN FORM -->
                 <div class="hero-right">
-                    <div class="form-card" id="formCard">
-                        <h3 class="form-title">Reserve Your Free Spot</h3>
-                        <p class="form-subtitle">Join the live 3-day workshop starting December 2nd</p>
+                    <div class="form-card">
+                        <h3>Reserve Your Free Spot</h3>
 
-                        <form id="optinForm" class="optin-form">
+                        <form id="optinForm">
                             <div class="form-group">
-                                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                                <label for="name">First Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your first name" required>
                             </div>
 
                             <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
                             </div>
 
-                            <button type="submit" class="cta-primary">
-                                Yes! Save My Spot
+                            <button type="submit" class="btn btn-large" style="width: 100%;">
+                                Save My Free Spot For The Live AI Etsy Workshop
                             </button>
-
-                            <p class="form-privacy">
-                                We respect your privacy. Unsubscribe anytime.
-                            </p>
                         </form>
 
-                        <div class="workshop-meta">
-                            <div class="meta-item">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#7B9F8C">
-                                    <path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H9v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                                </svg>
-                                <span>Dec 2-4 • 7PM EST</span>
+                        <div class="form-meta">
+                            <div class="form-meta-row">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                <span><strong>Dec 2, 3, 4</strong> at 7PM EST</span>
                             </div>
-                            <div class="meta-item">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#7B9F8C">
-                                    <path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
-                                </svg>
-                                <span>100% Free • No Pitch</span>
+                            <div class="form-meta-row">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>100% Free • Live Q&A Included</span>
                             </div>
                         </div>
                     </div>
@@ -97,585 +1046,500 @@
         </div>
     </section>
 
-    <!-- SECTION 2: IS THIS FOR YOU? -->
-    <section class="for-you" id="for-you">
-        <div class="organic-blob blob-1"></div>
+    <!-- ================================================
+         SECTION 2: IS THIS FOR YOU?
+         ================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-card">
+                <h2 class="text-center">Is This For You?</h2>
 
-        <div class="container-medium">
-            <div class="bailey-intro">
-                <div class="bailey-circle">
-                    <span>BV</span>
+                <div class="qualification-grid">
+                    <!-- FOR YOU -->
+                    <div class="qualification-col">
+                        <h4>This IS for you if…</h4>
+                        <ul class="qualification-list for-you">
+                            <li>You're 35–55, juggling work/family and you can't take a huge risk, but you need extra income.</li>
+                            <li>You've opened an Etsy shop (or thought about it) but quit within 45 days because it felt like shouting into the void.</li>
+                            <li>You've bought 5, 10, maybe 20+ courses and still don't have a $1–3K/mo shop to show for it.</li>
+                            <li>You don't want to dance on TikTok or become a 'content creator' just to make sales.</li>
+                            <li>You're willing to follow a proven, data-backed system even if it feels different from what you've tried before.</li>
+                        </ul>
+                    </div>
+
+                    <div class="qualification-divider"></div>
+
+                    <!-- NOT FOR YOU -->
+                    <div class="qualification-col">
+                        <h4>This is NOT for you if…</h4>
+                        <ul class="qualification-list not-for-you">
+                            <li>You're looking for a 'get rich quick' scheme or overnight success.</li>
+                            <li>You're not willing to invest 5–10 hours per week to build your shop.</li>
+                            <li>You want someone else to do all the work for you.</li>
+                            <li>You're not open to using AI tools and modern technology.</li>
+                            <li>You're already making $10K+/month and just want to scale further (this is for beginners to intermediate).</li>
+                        </ul>
+                    </div>
                 </div>
-                <p class="from-bailey">From Bailey:</p>
-            </div>
 
-            <h2 class="section-title">Is This Workshop For You?</h2>
-
-            <div class="qualification-grid">
-                <div class="qual-card">
-                    <svg class="check-hand" width="32" height="32" viewBox="0 0 32 32">
-                        <path d="M5 16L12 23L27 8" stroke="#7B9F8C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p>You're 35–55, juggling work/family and you can't take a huge risk, but you need extra income.</p>
+                <div class="commitment-line">
+                    If you're done starting and quitting and you just want a clear, data-backed plan to hit $3–10K/mo, this challenge is for you.
                 </div>
 
-                <div class="qual-card">
-                    <svg class="check-hand" width="32" height="32" viewBox="0 0 32 32">
-                        <path d="M5 16L12 23L27 8" stroke="#7B9F8C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p>You've opened an Etsy shop (or thought about it) but quit within 45 days because it felt like shouting into the void.</p>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#optinForm" class="btn btn-large">Yes, I'm Ready – Save My Spot</a>
                 </div>
-
-                <div class="qual-card">
-                    <svg class="check-hand" width="32" height="32" viewBox="0 0 32 32">
-                        <path d="M5 16L12 23L27 8" stroke="#7B9F8C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p>You've bought 5, 10, maybe 20+ courses and still don't have a $1–3K/mo shop to show for it.</p>
-                </div>
-
-                <div class="qual-card">
-                    <svg class="check-hand" width="32" height="32" viewBox="0 0 32 32">
-                        <path d="M5 16L12 23L27 8" stroke="#7B9F8C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p>You don't want to dance on TikTok or become a 'content creator' just to make sales.</p>
-                </div>
-            </div>
-
-            <div class="commitment-banner">
-                <p class="handwritten">If you're done starting and quitting and you just want a clear, data-backed plan to hit $3–10K/mo, this challenge is for you.</p>
-            </div>
-
-            <div class="cta-center">
-                <button class="cta-primary" onclick="scrollToForm()">
-                    Save My Free Spot For The Live AI Etsy Workshop
-                </button>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: BAILEY STORY + PARADIGM -->
-    <section class="story-paradigm" id="story">
-        <div class="paper-texture"></div>
-
-        <div class="container-large">
-            <div class="story-grid">
-                <div class="story-timeline">
-                    <h2 class="section-title left-align">From Stay-at-Home Mom to 7-Figure Etsy Shop</h2>
-
-                    <div class="timeline-wrapper">
-                        <div class="timeline-line"></div>
-
-                        <div class="milestone" data-aos="fade-up">
-                            <div class="milestone-dot"></div>
-                            <div class="milestone-card sage">
-                                <h4>The Beginning</h4>
-                                <p>Stay-at-home mom looking for income without leaving the kids</p>
-                            </div>
+    <!-- ================================================
+         SECTION 3: BAILEY STORY + PARADIGM
+         ================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-card pattern-dots">
+                <div class="story-grid">
+                    <!-- LEFT: Photo + Stats -->
+                    <div class="story-left">
+                        <div class="story-photo">
+                            BV
                         </div>
-
-                        <div class="milestone" data-aos="fade-up" data-aos-delay="100">
-                            <div class="milestone-dot"></div>
-                            <div class="milestone-card cream">
-                                <h4>The Shift</h4>
-                                <p>Discovered data-driven research + AI design tools changed everything</p>
-                            </div>
+                        <div class="stat-strip">
+                            7-figure Etsy shop<br>
+                            386K+ sales<br>
+                            $1M+ in digital products
                         </div>
+                    </div>
 
-                        <div class="milestone" data-aos="fade-up" data-aos-delay="200">
-                            <div class="milestone-dot"></div>
-                            <div class="milestone-card sage">
-                                <h4>386,000+ Sales</h4>
-                                <p>Built a transparent system while everyone else hid their shops</p>
-                            </div>
-                        </div>
+                    <!-- RIGHT: Story -->
+                    <div class="story-right">
+                        <h2>From Stay-at-Home Mom to 7-Figure Etsy Shop Owner</h2>
 
-                        <div class="milestone milestone-featured" data-aos="fade-up" data-aos-delay="300">
-                            <div class="milestone-dot gold"></div>
-                            <div class="milestone-card gold">
-                                <div class="verified-badge">
-                                    <span class="badge-amount">$1M+</span>
-                                    <span class="badge-label">Verified Revenue</span>
+                        <p>Hi, I'm Bailey Vann. Five years ago, I was a stay-at-home mom looking for a way to contribute financially without sacrificing time with my family.</p>
+
+                        <p>I started selling digital products on Etsy—and everything I tried failed. For months.</p>
+
+                        <p>Until I stopped guessing and started using data. I stopped "hoping" products would sell and started researching what was already selling. I stopped designing from scratch and started using templates and systems.</p>
+
+                        <p>The result? My shop exploded. Not overnight—but consistently. Month after month, year after year.</p>
+
+                        <p>Today, my shop has generated over <strong>$1 million in revenue</strong> from simple digital files, and I've helped thousands of women do the same through my YouTube channel and Empire Accelerator program.</p>
+
+                        <p>Everyone else hid their shops out of fear. I went radically transparent—sharing my numbers, strategies, and systems publicly—and still grew an additional $58K while teaching.</p>
+
+                        <p><strong>Here's what I've learned:</strong> The market rewards speed and consistency, not perfect design. And with AI, the "I'm not a designer" excuse is gone forever.</p>
+
+                        <!-- PARADIGM SHIFT -->
+                        <div class="paradigm-shift">
+                            <h3 class="text-center">The Old Way vs. The New Way</h3>
+                            <div class="paradigm-grid">
+                                <div class="paradigm-col old">
+                                    <h5>❌ What Most People Do (And Fail)</h5>
+                                    <ul>
+                                        <li>Guess what products to create based on "what feels right"</li>
+                                        <li>Design everything from scratch, spending weeks per product</li>
+                                        <li>Hope Etsy's algorithm sends them traffic</li>
+                                        <li>Buy more courses instead of implementing</li>
+                                    </ul>
                                 </div>
-                                <p>Proved radical transparency works — grew +$58K after going public</p>
+
+                                <div class="paradigm-col new">
+                                    <h5>✓ What Actually Works (My System)</h5>
+                                    <ul>
+                                        <li>Use live Etsy data to predict what will sell before you create it</li>
+                                        <li>Use AI prompts and templates to create products in hours, not weeks</li>
+                                        <li>Build an email list that drives traffic on demand</li>
+                                        <li>Follow a proven system with accountability</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="paradigm-shift">
-                    <h3 class="paradigm-title">The Paradigm Shift</h3>
-                    <p class="paradigm-subtitle">What most people are still doing vs. what actually works in 2025</p>
+                        <p style="margin-top: 30px;"><strong>In this free workshop, I'll show you how to use my AI prompts + research tools so you never create a product blind again.</strong></p>
 
-                    <div class="paradigm-comparison">
-                        <div class="paradigm-side old">
-                            <h4>The Manual Way<br><span>(Exhausting)</span></h4>
-                            <ul>
-                                <li>Guessing what keywords might work</li>
-                                <li>Designing from scratch or poorly</li>
-                                <li>Hoping the Etsy algorithm picks you</li>
-                                <li>Copying saturated ideas from search</li>
-                            </ul>
-                        </div>
-
-                        <div class="arrow-divider">
-                            <svg width="60" height="120" viewBox="0 0 60 120">
-                                <path class="arrow-path" d="M10 20 Q 30 60, 50 100" stroke="#D4AF37" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                                <polygon points="50,100 45,90 55,90" fill="#D4AF37"/>
-                            </svg>
-                        </div>
-
-                        <div class="paradigm-side new">
-                            <h4>The AI + Data Way<br><span>(Proven)</span></h4>
-                            <ul>
-                                <li>AI research shows what's selling now</li>
-                                <li>Design tools create pro listings fast</li>
-                                <li>Build your own traffic with email</li>
-                                <li>Find unsaturated niches first</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="paradigm-callout">
-                        <p class="handwritten-italic">If this is what I can show you on a free live workshop, imagine what it's like inside my Empire Accelerator.</p>
+                        <p style="font-style: italic; color: var(--color-text-muted);">If this is what I can show you on a free live workshop, imagine what it's like inside my Empire Accelerator.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: THE 3-DAY CHALLENGE -->
-    <section class="challenge" id="challenge">
-        <div class="container-large">
-            <div class="challenge-header">
-                <h2 class="section-title-large">A Once-In-A-Lifetime 3-Day Challenge</h2>
-                <p class="challenge-subtitle">
-                    This is a one-time, 3-day live challenge where I'm pulling back the curtain on the exact system I usually only build with my $2.5K+ Empire Accelerator students.
-                </p>
+    <!-- ================================================
+         SECTION 4: ONCE-IN-A-LIFETIME CHALLENGE
+         ================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="challenge-card">
+                <div class="challenge-ribbon">
+                    Free 3-Day AI Etsy Escape Plan
+                </div>
+
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2>This Is A Once-In-A-Lifetime Challenge</h2>
+                    <p style="font-size: 18px; margin-top: 20px;">This is a one-time, 3-day live challenge where I'm pulling back the curtain on the exact system I usually only build with my $2.5K+ Empire Accelerator students.</p>
+                    <p style="font-size: 18px;">You'll walk away with a complete roadmap to launch or fix your Etsy shop using AI—even if you've failed before.</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION 5: 3-DAY BREAKDOWN
+         ================================================ -->
+    <div class="days-band">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 50px;">Here's Exactly What We'll Cover</h2>
 
             <div class="days-grid">
-                <div class="day-card sage-border" data-aos="fade-up">
-                    <div class="day-number hand-drawn">1</div>
-                    <h3>Find Your Winning AI-Powered Etsy Product</h3>
-                    <ul class="outcome-list">
+                <!-- DAY 1 -->
+                <div class="day-card">
+                    <div class="day-icon">💡</div>
+                    <div class="pill-badge pill-badge-light">DAY 1 – PRODUCT</div>
+                    <h4>Find Your Winning AI-Powered Etsy Product</h4>
+                    <ul>
                         <li>Discover the 3 product types that are still unsaturated for 2025–2026 (with live examples)</li>
                         <li>See how to use Bailey's research method to predict what will sell before you design it</li>
                         <li>Leave with a short list of 3–5 product ideas tailored to your life situation</li>
+                        <li>Learn how to validate ideas in under 30 minutes using free tools</li>
                     </ul>
-                    <button class="cta-soft" onclick="scrollToForm()">Yes, Save My Free Spot</button>
+                    <div style="text-align: center; margin-top: 24px;">
+                        <a href="#optinForm" class="btn">Save My Spot</a>
+                    </div>
                 </div>
 
-                <div class="day-card teal-border" data-aos="fade-up" data-aos-delay="100">
-                    <div class="day-number hand-drawn">2</div>
-                    <h3>Create Irresistible Listings Without Being A Designer</h3>
-                    <ul class="outcome-list">
+                <!-- DAY 2 -->
+                <div class="day-card">
+                    <div class="day-icon">✏️</div>
+                    <div class="pill-badge pill-badge-light">DAY 2 – DESIGN</div>
+                    <h4>Create Irresistible Listings Without Being A Designer</h4>
+                    <ul>
                         <li>Watch Bailey build a product live using AI tools, so you can copy the workflow step-by-step</li>
                         <li>Learn the title/tag framework she used to rank thousands of listings</li>
                         <li>See how to create scroll-stopping mockups that don't look 'homemade'</li>
+                        <li>Get access to Bailey's best AI prompts for product creation</li>
                     </ul>
-                    <button class="cta-soft" onclick="scrollToForm()">Yes, Save My Free Spot</button>
+                    <div style="text-align: center; margin-top: 24px;">
+                        <a href="#optinForm" class="btn">Save My Spot</a>
+                    </div>
                 </div>
 
-                <div class="day-card gold-border" data-aos="fade-up" data-aos-delay="200">
-                    <div class="day-number hand-drawn">3</div>
-                    <h3>The Automated Traffic Circle: Stop Relying On Etsy's Algorithm</h3>
-                    <ul class="outcome-list">
+                <!-- DAY 3 -->
+                <div class="day-card">
+                    <div class="day-icon">🔄</div>
+                    <div class="pill-badge pill-badge-light">DAY 3 – TRAFFIC</div>
+                    <h4>The Automated Traffic Circle: Stop Relying On Etsy's Algorithm</h4>
+                    <ul>
                         <li>Understand Bailey's email list system that grew to 20,000 subscribers and pushed her shop over $1M</li>
                         <li>How to turn one buyer into repeat revenue (without spamming them)</li>
+                        <li>See the simple funnel that drives sales on autopilot</li>
                         <li>The exact next steps if you want hand-holding via Empire Accelerator</li>
                     </ul>
-                    <button class="cta-soft" onclick="scrollToForm()">Yes, Save My Free Spot</button>
+                    <div style="text-align: center; margin-top: 24px;">
+                        <a href="#optinForm" class="btn">Save My Spot</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="sticky-counter" id="stickyCounter">
-            <span class="counter-label">Workshop starts in:</span>
-            <span class="counter-days" id="daysUntil">--</span>
-            <span class="counter-unit">days</span>
-        </div>
-    </section>
-
-    <!-- SECTION 5: WHAT THIS CAN DO FOR YOU -->
-    <section class="outcomes" id="outcomes">
-        <div class="bailey-watermark">BV</div>
-        <div class="particle" style="top: 10%; left: 20%;"></div>
-        <div class="particle" style="top: 60%; left: 80%;"></div>
-        <div class="particle" style="top: 30%; left: 70%;"></div>
-
-        <div class="container-large">
-            <h2 class="section-title-large">What This Can Do For You</h2>
-
-            <div class="masonry-grid">
-                <div class="outcome-card large" data-aos="fade-up">
-                    <div class="outcome-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48">
-                            <path d="M24 4L28 12L40 14L32 22L34 34L24 28L14 34L16 22L8 14L20 12L24 4Z" fill="none" stroke="#7B9F8C" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h4>No More Guessing</h4>
-                    <p>Go from guessing to knowing exactly what to design, because your products are backed by live Etsy data – not vibes.</p>
-                </div>
-
-                <div class="outcome-card medium" data-aos="fade-up" data-aos-delay="50">
-                    <div class="outcome-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48">
-                            <rect x="12" y="16" width="24" height="28" rx="2" fill="none" stroke="#7B9F8C" stroke-width="2"/>
-                            <path d="M20 24h8M20 30h8" stroke="#D4AF37" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h4>Morning Cha-Chings</h4>
-                    <p>Replace random late-night texting of your friends about money with waking up to Etsy cha-ching notifications.</p>
-                </div>
-
-                <div class="outcome-card small" data-aos="fade-up" data-aos-delay="100">
-                    <div class="outcome-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48">
-                            <circle cx="24" cy="24" r="18" fill="none" stroke="#7B9F8C" stroke-width="2"/>
-                            <path d="M16 24L22 30L32 18" stroke="#D4AF37" stroke-width="2" fill="none"/>
-                        </svg>
-                    </div>
-                    <h4>No Content Creation</h4>
-                    <p>See a clear path to $3–10K/mo that doesn't involve starting a YouTube channel, becoming an influencer, or learning Facebook ad manager.</p>
-                </div>
-
-                <div class="outcome-card medium" data-aos="fade-up" data-aos-delay="150">
-                    <div class="outcome-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48">
-                            <path d="M24 8L28 20L40 22L32 30L34 42L24 36L14 42L16 30L8 22L20 20Z" fill="none" stroke="#D4AF37" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h4>Finally Get Respect</h4>
-                    <p>Stop feeling embarrassed when family asks "how's that thing you're doing?" Start having real numbers to share.</p>
-                </div>
-
-                <div class="outcome-card large" data-aos="fade-up" data-aos-delay="200">
-                    <div class="outcome-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48">
-                            <circle cx="24" cy="18" r="8" fill="none" stroke="#7B9F8C" stroke-width="2"/>
-                            <path d="M12 40c0-8 6-12 12-12s12 4 12 12" fill="none" stroke="#7B9F8C" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h4>Perfect For Your Season</h4>
-                    <p>This works even if you're 45, 50, 55+ with kids, grandkids, and a full schedule. You just need 5-10 hours a week.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6: SOCIAL PROOF WALL -->
-    <section class="proof-wall" id="proof">
-        <div class="organic-blob blob-2"></div>
-
-        <div class="container-large">
-            <h2 class="section-title-large">Real Results From Real Women</h2>
-            <p class="proof-subtitle">See what students are saying about Bailey's method</p>
-
-            <div class="proof-filters">
-                <button class="filter-pill active" data-filter="all">All Results</button>
-                <button class="filter-pill" data-filter="first-sale">First Sale</button>
-                <button class="filter-pill" data-filter="left-corporate">Left Corporate</button>
-                <button class="filter-pill" data-filter="5k-months">$5K+ Months</button>
-            </div>
-
-            <div class="testimonial-masonry">
-                <div class="testimonial-card" data-category="first-sale" data-aos="fade-up">
-                    <div class="test-header">
-                        <div class="avatar">S</div>
-                        <div class="test-meta">
-                            <h5>Sarah M.</h5>
-                            <span class="verified">✓ Verified Student</span>
-                        </div>
-                    </div>
-                    <p>"Etsy finally clicked after 5 failed shops. Bailey's data-driven approach made all the difference. Hit my first $1K month in 90 days!"</p>
-                    <div class="test-tag">First $1K Month</div>
-                </div>
-
-                <div class="testimonial-card" data-category="all" data-aos="fade-up" data-aos-delay="50">
-                    <div class="test-header">
-                        <div class="avatar">J</div>
-                        <div class="test-meta">
-                            <h5>Jennifer L.</h5>
-                            <span class="verified">✓ Verified Student</span>
-                        </div>
-                    </div>
-                    <p>"I'm not techy and still did this. The AI tools make it so simple. Started at 47 with grandkids and it still works."</p>
-                    <div class="test-tag">Non-Tech Success</div>
-                </div>
-
-                <div class="testimonial-card featured" data-category="left-corporate 5k-months" data-aos="fade-up" data-aos-delay="100">
-                    <div class="test-header">
-                        <div class="avatar">M</div>
-                        <div class="test-meta">
-                            <h5>Michelle K.</h5>
-                            <span class="verified">✓ Verified Student</span>
-                        </div>
-                    </div>
-                    <p>"From burned-out corporate manager to $8K/month Etsy shop owner. I work on my terms now. Bailey's system is the real deal."</p>
-                    <div class="test-tag">$8K/Month</div>
-                </div>
-
-                <div class="testimonial-card" data-category="first-sale" data-aos="fade-up" data-aos-delay="150">
-                    <div class="test-header">
-                        <div class="avatar">R</div>
-                        <div class="test-meta">
-                            <h5>Rachel T.</h5>
-                            <span class="verified">✓ Verified Student</span>
-                        </div>
-                    </div>
-                    <p>"Got my first sale within 2 weeks. Now consistently making $200-300/week with products that took less than an hour to create."</p>
-                    <div class="test-tag">Quick Wins</div>
-                </div>
-
-                <div class="testimonial-card" data-category="all" data-aos="fade-up" data-aos-delay="200">
-                    <div class="test-header">
-                        <div class="avatar">D</div>
-                        <div class="test-meta">
-                            <h5>Donna P.</h5>
-                            <span class="verified">✓ Verified Student</span>
-                        </div>
-                    </div>
-                    <p>"Bailey's transparency is refreshing. She shows EVERYTHING - the good, the bad, the real numbers. Finally someone who's genuine."</p>
-                    <div class="test-tag">Transparency</div>
-                </div>
-
-                <div class="testimonial-card" data-category="5k-months" data-aos="fade-up" data-aos-delay="250">
-                    <div class="test-header">
-                        <div class="avatar">L</div>
-                        <div class="test-meta">
-                            <h5>Lisa H.</h5>
-                            <span class="verified">✓ Verified Student</span>
-                        </div>
-                    </div>
-                    <p>"Went from 'one more course' skeptic to consistent $5K months. The email list strategy changed everything for me."</p>
-                    <div class="test-tag">$5K+ Monthly</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: BEFORE/AFTER -->
-    <section class="before-after" id="comparison">
-        <div class="container-medium">
-            <h2 class="section-title-large">Before vs. After This Challenge</h2>
-
-            <div class="comparison-wrapper">
-                <div class="before-side">
-                    <h3>Before</h3>
-                    <div class="sticky-notes">
-                        <div class="sticky-note">Guessing what to design</div>
-                        <div class="sticky-note">Copying saturated ideas</div>
-                        <div class="sticky-note">Hoping Etsy sends traffic</div>
-                        <div class="sticky-note">Buying more courses</div>
-                        <div class="sticky-note">Overwhelmed by advice</div>
-                        <div class="sticky-note">Quit within 45 days</div>
-                    </div>
-                </div>
-
-                <div class="zigzag-divider">
-                    <svg width="80" height="400" viewBox="0 0 80 400">
-                        <path d="M40 0 L60 50 L20 100 L60 150 L20 200 L60 250 L20 300 L60 350 L40 400"
-                              stroke="#D4AF37" stroke-width="3" fill="none"/>
-                    </svg>
-                    <div class="days-burst">
-                        <span class="burst-number">3</span>
-                        <span class="burst-text">Days</span>
-                    </div>
-                </div>
-
-                <div class="after-side">
-                    <h3>After the Challenge</h3>
-                    <ul class="checklist">
-                        <li>Data-backed list of 3–5 products to launch</li>
-                        <li>A simple AI workflow that lets you create 5–10 listings in a sitting</li>
-                        <li>A step-by-step plan to build your first 'Automated Traffic Circle'</li>
-                        <li>Clarity on whether Empire Accelerator is your next logical step or not</li>
-                        <li>Confidence that you can actually make this work</li>
-                        <li>A clear roadmap to your first $3K month</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="cta-center">
-                <button class="cta-primary" onclick="scrollToForm()">
-                    Save My Free Spot For The Live AI Etsy Workshop
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 8: SCARCITY/URGENCY -->
-    <section class="scarcity" id="urgency">
-        <div class="container-medium">
+    <!-- ================================================
+         SECTION 6: SCARCITY / ONE-TIME EVENT
+         ================================================ -->
+    <section class="section">
+        <div class="container">
             <div class="scarcity-card">
-                <h2 class="scarcity-title">Quick Heads-Up: This Is A One-Time Event</h2>
+                <h2>Quick Heads-Up: This Is A One-Time Event</h2>
 
-                <p class="scarcity-text">
-                    I'm doing this once as a <strong>live beta</strong> before I raise the price of my Empire Accelerator again and move to a sales-call model.
-                </p>
+                <ul class="scarcity-bullets">
+                    <li>I'm doing this once as a live beta before I raise the price of my Empire Accelerator again and move to a sales-call model.</li>
+                    <li>The Zoom room is capped at 500 attendees to protect Q&A quality and chat engagement.</li>
+                    <li>Replays will only be available for 72 hours after each session ends.</li>
+                </ul>
 
-                <div class="countdown-block">
-                    <p class="countdown-label">Workshop starts in:</p>
-                    <div class="countdown-display">
+                <div class="countdown-bar">
+                    <div class="countdown-label">WORKSHOP STARTS IN:</div>
+                    <div class="countdown-timer" id="countdown">
                         <div class="countdown-unit">
-                            <span class="countdown-num" id="days">00</span>
+                            <span class="countdown-number" id="days">12</span>
                             <span class="countdown-text">Days</span>
                         </div>
                         <div class="countdown-unit">
-                            <span class="countdown-num" id="hours">00</span>
+                            <span class="countdown-number" id="hours">08</span>
                             <span class="countdown-text">Hours</span>
                         </div>
                         <div class="countdown-unit">
-                            <span class="countdown-num" id="minutes">00</span>
+                            <span class="countdown-number" id="minutes">34</span>
                             <span class="countdown-text">Minutes</span>
                         </div>
                         <div class="countdown-unit">
-                            <span class="countdown-num" id="seconds">00</span>
+                            <span class="countdown-number" id="seconds">22</span>
                             <span class="countdown-text">Seconds</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="room-capacity">
-                    <div class="capacity-header">
-                        <span>Spots Remaining:</span>
-                        <span class="spots-count" id="spotsRemaining">147</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 63%;"></div>
-                    </div>
-                    <p class="capacity-note">Zoom room capped to protect Q&A quality</p>
+                <div class="catch-paragraph">
+                    <strong>There is a catch:</strong> To get all three days live plus the replay rights, you have to put your name down before we go live on Dec 2 at 7PM EST.
                 </div>
 
-                <div class="bailey-message">
-                    <p class="handwritten-note">"There is a catch: to get all three days live plus the replay rights, you have to put your name down before we go live on Dec 2 at 7PM EST. Once the room is full, the doors close."</p>
-                    <p class="signature">~ Bailey</p>
-                </div>
+                <p class="catch-paragraph">
+                    Once the room is full and we start on Dec 2, the doors close. I have no plans to run it like this again.
+                </p>
 
-                <button class="cta-primary large" onclick="scrollToForm()">
-                    Save My Free Spot For The Live AI Etsy Workshop
-                </button>
+                <a href="#optinForm" class="btn btn-large" style="margin-top: 30px;">
+                    Yes, Save My Free Spot For The Live AI Etsy Workshop
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 9: FAQ -->
-    <section class="faq" id="faq">
-        <div class="container-medium">
-            <h2 class="section-title-large">Frequently Asked Questions</h2>
+    <!-- ================================================
+         SECTION 7: SOCIAL PROOF
+         ================================================ -->
+    <div class="proof-band">
+        <div class="container">
+            <h2 class="text-center">Real Results From Real Students</h2>
+            <p class="text-center" style="font-size: 18px; color: var(--color-text-muted); margin-bottom: 20px;">
+                Women just like you are building profitable Etsy shops with Bailey's system
+            </p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">SM</div>
+                        <div>
+                            <div class="testimonial-name">Sarah M.</div>
+                            <div class="testimonial-tag">Beginner → First Sale</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"I was so overwhelmed with all the Etsy advice out there. Bailey's system finally gave me a clear path. I made my first sale in week 3!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">JL</div>
+                        <div>
+                            <div class="testimonial-name">Jennifer L.</div>
+                            <div class="testimonial-tag">5 Failed Shops → Success</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"Etsy finally clicked after 5 failed shops. Bailey's data-driven approach was the missing piece I needed. Now I'm at $2.1K/month!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">KR</div>
+                        <div>
+                            <div class="testimonial-name">Karen R.</div>
+                            <div class="testimonial-tag">Not Techy → $3.8K/mo</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"I'm not techy at all and was scared of AI. Bailey made it so simple. I can't believe I'm making more from Etsy than my part-time job!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">LC</div>
+                        <div>
+                            <div class="testimonial-name">Lisa C.</div>
+                            <div class="testimonial-tag">Started at 47</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"I started at 47 with grandkids and it still works. Age is just a number when you have the right system. Thank you Bailey!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MH</div>
+                        <div>
+                            <div class="testimonial-name">Michelle H.</div>
+                            <div class="testimonial-tag">Corporate Burnout → Freedom</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"After 20 years in corporate, I was burned out. Bailey's workshop showed me a real exit plan. I'm now at $4.2K/month and growing!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">TR</div>
+                        <div>
+                            <div class="testimonial-name">Tanya R.</div>
+                            <div class="testimonial-tag">Course Junkie → Implementer</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"I'd bought 15+ courses and never finished any. Bailey's step-by-step accountability was different. Finally, a system that works!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================
+         SECTION 8: BEFORE / AFTER
+         ================================================ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 40px;">The Transformation</h2>
+
+            <div class="before-after-grid">
+                <div class="before-col">
+                    <h3>Before This Challenge</h3>
+                    <ul>
+                        <li>Guessing what to design based on "gut feeling"</li>
+                        <li>Copying saturated ideas from Etsy search results</li>
+                        <li>Hoping Etsy's algorithm sends you traffic</li>
+                        <li>Buying more courses instead of implementing</li>
+                        <li>Feeling overwhelmed by conflicting advice</li>
+                        <li>Starting and quitting every 45 days</li>
+                    </ul>
+                </div>
+
+                <div class="after-col">
+                    <h3>After This Challenge</h3>
+                    <ul>
+                        <li>Data-backed list of 3–5 products proven to sell</li>
+                        <li>A simple AI workflow that lets you create 5–10 listings in one sitting</li>
+                        <li>A step-by-step plan to build your first 'Automated Traffic Circle'</li>
+                        <li>Confidence that you're following a proven system</li>
+                        <li>Clarity on whether Empire Accelerator is your next logical step</li>
+                        <li>A real shot at building $3–10K/month income</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         SECTION 9: FAQ
+         ================================================ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 40px;">Frequently Asked Questions</h2>
 
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Is this only for people who already have an Etsy shop?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24">
-                            <line x1="12" y1="5" x2="12" y2="19" stroke="#7B9F8C" stroke-width="2"/>
-                            <line x1="5" y1="12" x2="19" y2="12" stroke="#7B9F8C" stroke-width="2"/>
-                        </svg>
-                    </button>
+                    <div class="faq-question">Is this only for people who already have an Etsy shop?</div>
                     <div class="faq-answer">
-                        <p>Not at all! This workshop is perfect whether you're completely new to Etsy or you've tried before and given up. I'll walk through everything from absolute scratch, including how to set up your shop properly from day one.</p>
+                        No! This workshop is designed for both complete beginners and people who've tried Etsy before and want to finally make it work. We'll start from the ground up.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What if I'm not good with tech or design?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24">
-                            <line x1="12" y1="5" x2="12" y2="19" stroke="#7B9F8C" stroke-width="2"/>
-                            <line x1="5" y1="12" x2="19" y2="12" stroke="#7B9F8C" stroke-width="2"/>
-                        </svg>
-                    </button>
+                    <div class="faq-question">What if I'm not good with tech or design?</div>
                     <div class="faq-answer">
-                        <p>That's exactly why I teach using AI tools! You don't need to be a designer or a tech expert. The AI tools I'll show you do the heavy lifting. If you can use email and browse the internet, you can do this.</p>
+                        Perfect—you're exactly who this is for. I'll show you how to use AI tools that do the heavy lifting for you. If you can copy and paste, you can do this. No design skills required.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What if I've tried Etsy before and failed?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24">
-                            <line x1="12" y1="5" x2="12" y2="19" stroke="#7B9F8C" stroke-width="2"/>
-                            <line x1="5" y1="12" x2="19" y2="12" stroke="#7B9F8C" stroke-width="2"/>
-                        </svg>
-                    </button>
+                    <div class="faq-question">What if I've tried Etsy before and failed?</div>
                     <div class="faq-answer">
-                        <p>Most of my best students tried Etsy 2, 3, even 5 times before finding my system. The difference is the data-driven approach. You weren't failing – you just didn't have the right method. This workshop will show you exactly what was missing.</p>
+                        Most of my best students are people who "failed" at Etsy 2, 3, even 5 times before. The difference? This time you'll have a data-backed system instead of guessing. That changes everything.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Will there be a pitch?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24">
-                            <line x1="12" y1="5" x2="12" y2="19" stroke="#7B9F8C" stroke-width="2"/>
-                            <line x1="5" y1="12" x2="19" y2="12" stroke="#7B9F8C" stroke-width="2"/>
-                        </svg>
-                    </button>
+                    <div class="faq-question">Will there be a pitch?</div>
                     <div class="faq-answer">
-                        <p>Yes, I'll be transparent: on Day 3 I'll show you how Empire Accelerator works if you want deeper help. But the workshop will be valuable on its own even if you never join. You'll leave with actionable steps regardless.</p>
+                        Yes—I'll be honest with you. On Day 3, I'll show you how my Empire Accelerator program works if you want deeper help and accountability. But the workshop will be massively valuable on its own, even if you never join anything.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How much time do I need to commit?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24">
-                            <line x1="12" y1="5" x2="12" y2="19" stroke="#7B9F8C" stroke-width="2"/>
-                            <line x1="5" y1="12" x2="19" y2="12" stroke="#7B9F8C" stroke-width="2"/>
-                        </svg>
-                    </button>
+                    <div class="faq-question">How much time do I need per week to make this work?</div>
                     <div class="faq-answer">
-                        <p>Each live session is about 90 minutes. To implement what you learn, you'll need 5-10 hours per week. This is designed for busy moms and working women who don't have unlimited time.</p>
+                        Most of my students start with 5–10 hours per week. That's enough to research, create products, and optimize listings. As you build momentum, you can scale up or keep it as a side income—your choice.
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What if I can't attend live?</span>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24">
-                            <line x1="12" y1="5" x2="12" y2="19" stroke="#7B9F8C" stroke-width="2"/>
-                            <line x1="5" y1="12" x2="19" y2="12" stroke="#7B9F8C" stroke-width="2"/>
-                        </svg>
-                    </button>
+                    <div class="faq-question">Is Etsy saturated? Am I too late?</div>
                     <div class="faq-answer">
-                        <p>Replays will be available for 72 hours after each session. However, live attendees get priority for Q&A and the energy is always better live!</p>
+                        The people making excuses say it's saturated. The people making money know there are still massive opportunities—especially in the niches I'll show you. In the workshop, I'll prove it with live data.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta">
-        <div class="container-medium">
-            <h2 class="final-title">Your $3-10K/Month Etsy Shop Starts Here</h2>
-            <p class="final-subtitle">Join me live December 2-4 and I'll show you the exact AI-powered system I used to build a 7-figure digital shop as a stay-at-home mom.</p>
-
-            <button class="cta-primary large" onclick="scrollToForm()">
-                Save My Free Spot For The Live AI Etsy Workshop
-            </button>
-
-            <div class="bailey-sig">
-                <svg width="180" height="50" viewBox="0 0 180 50">
-                    <text x="10" y="35" font-family="Dancing Script" font-size="28" fill="#7B9F8C">Bailey Vann</text>
-                </svg>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
+    <!-- ================================================
+         FINAL CTA STRIP
+         ================================================ -->
+    <section class="section">
         <div class="container">
-            <p>&copy; 2025 Bailey Vann Creative AI Empire. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms</a>
-                <a href="#contact">Contact</a>
+            <div class="final-cta">
+                <h3>Ready to Build Your $3–10K/Month AI-Powered Etsy Shop?</h3>
+                <p style="color: var(--color-text-on-accent); font-size: 18px; margin-bottom: 30px;">
+                    Join the free 3-day workshop and get the exact system Bailey used to pass $1M in Etsy sales.
+                </p>
+                <a href="#optinForm" class="btn btn-large">
+                    Yes, Save My Free Spot Now
+                </a>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="js/main.js"></script>
+    <!-- ================================================
+         SIMPLE COUNTDOWN TIMER SCRIPT
+         ================================================ -->
+    <script>
+        // Set workshop start date: December 2, 2025 at 7PM EST
+        const workshopDate = new Date('2025-12-02T19:00:00-05:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = workshopDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div class="countdown-unit"><span class="countdown-number">LIVE</span><span class="countdown-text">Workshop Has Started!</span></div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Form submission handler (you'll need to connect this to your email service)
+        document.getElementById('optinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // TODO: Connect to your email service provider (ConvertKit, Mailchimp, etc.)
+            console.log('Form submitted:', { name, email });
+
+            // Show success message
+            alert('🎉 Success! Check your email for workshop details and calendar invite.');
+
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scroll for CTA links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
