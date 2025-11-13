@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free AI Etsy Workshop - Build a $3-10K/Month Shop | Bailey Vann</title>
+    <title>Free AI Etsy Workshop - Bailey Vann | $3-10K/Month Digital Shop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --color-bg: #FBF1EB;
-  --color-bg-alt: #FFF7F1;
-  --color-card: #FFFFFF;
-  --color-border-subtle: #E6D9CC;
-  --color-accent: #185A4F;
-  --color-accent-soft: #E0F0EC;
-  --color-accent-secondary: #C76B3C;
-  --color-text-main: #1F1A16;
-  --color-text-muted: #7E746A;
-  --shadow-soft: 0 18px 40px rgba(0,0,0,0.08);
-  --radius-lg: 20px;
-  --radius-md: 14px;
+  --color-page-bg: #061411;
+  --color-page-bg-gradient-top: #071B17;
+  --color-page-bg-gradient-bottom: #130E0A;
+
+  --color-card: #FFF8F2;
+  --color-card-alt: #FBEDE3;
+  --color-border-subtle: #E2D0C0;
+
+  --color-accent: #0E3D34;
+  --color-accent-soft: #DDEBE6;
+  --color-accent-secondary: #C86B3D;
+  --color-highlight: #F4C26A;
+
+  --color-text-main: #241913;
+  --color-text-muted: #84736A;
+  --color-text-on-accent: #FFFFFF;
+
+  --radius-lg: 26px;
+  --radius-md: 18px;
   --radius-pill: 999px;
+
+  --shadow-soft: 0 22px 60px rgba(0,0,0,0.35);
   --max-width: 1120px;
+
   --font-serif: "Playfair Display", "Georgia", serif;
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
 }
@@ -36,22 +46,23 @@
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-bg);
+  background: linear-gradient(180deg, var(--color-page-bg-gradient-top) 0%, var(--color-page-bg-gradient-bottom) 100%);
   color: var(--color-text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 
 h1, h2, h3 {
   font-family: var(--font-serif);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 /* ============================================
@@ -59,49 +70,46 @@ h1, h2, h3 {
    ============================================ */
 
 .hero {
-  background: linear-gradient(135deg, #FFF7F1 0%, var(--color-bg) 100%);
-  padding: 80px 0 100px;
   position: relative;
+  padding: 80px 0 120px;
   overflow: hidden;
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(24, 90, 79, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1400px;
+  height: 1400px;
+  background: radial-gradient(circle, rgba(14, 61, 52, 0.3) 0%, transparent 65%);
   pointer-events: none;
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-  align-items: start;
   position: relative;
   z-index: 1;
-}
-
-.hero-left {
-  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: start;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: var(--color-accent-soft);
-  border: 1px solid var(--color-accent);
+  gap: 10px;
+  padding: 10px 22px;
+  background: rgba(14, 61, 52, 0.15);
+  border: 1.5px solid var(--color-accent);
   border-radius: var(--radius-pill);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-accent);
-  margin-bottom: 24px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-highlight);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
 }
 
 .badge-dot {
@@ -114,131 +122,147 @@ h1, h2, h3 {
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.2); }
+  50% { opacity: 0.5; transform: scale(1.3); }
 }
 
 .hero h1 {
   font-size: 52px;
   line-height: 1.1;
-  margin-bottom: 20px;
-  color: var(--color-text-main);
+  margin-bottom: 24px;
+  color: var(--color-card);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
 .hero-subhead {
-  font-size: 20px;
-  color: var(--color-text-muted);
-  margin-bottom: 32px;
+  font-size: 22px;
+  color: var(--color-card-alt);
+  margin-bottom: 36px;
   line-height: 1.5;
+  opacity: 0.95;
 }
 
-.vsl-placeholder {
+.vsl-mockup {
   aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, var(--color-accent) 0%, #0e3d33 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0a2d27 100%);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 48px;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
-.vsl-placeholder:hover {
+.vsl-mockup::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(244, 194, 106, 0.1) 0%, transparent 60%),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+  pointer-events: none;
+}
+
+.vsl-mockup:hover {
   transform: scale(1.02);
 }
 
 .play-button {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
-.vsl-placeholder:hover .play-button {
-  transform: scale(1.1);
+.vsl-mockup:hover .play-button {
+  transform: scale(1.15);
 }
 
 .play-icon {
   width: 0;
   height: 0;
-  border-left: 24px solid var(--color-accent);
-  border-top: 14px solid transparent;
-  border-bottom: 14px solid transparent;
-  margin-left: 6px;
+  border-left: 26px solid var(--color-accent);
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  margin-left: 7px;
 }
 
 .form-card {
   background: var(--color-card);
-  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
-  padding: 40px;
+  padding: 44px;
   box-shadow: var(--shadow-soft);
   position: sticky;
-  top: 24px;
+  top: 28px;
 }
 
 .form-card h3 {
-  font-size: 28px;
-  margin-bottom: 12px;
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: var(--color-accent);
 }
 
-.form-card p {
+.form-card > p {
   color: var(--color-text-muted);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
+  font-size: 15px;
 }
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .form-group input {
   width: 100%;
-  padding: 16px 20px;
-  border: 1.5px solid var(--color-border-subtle);
+  padding: 18px 22px;
+  border: 2px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
   font-size: 16px;
   font-family: var(--font-sans);
   transition: all 0.3s ease;
   background: var(--color-card);
+  color: var(--color-text-main);
 }
 
 .form-group input:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-accent-soft);
+  box-shadow: 0 0 0 4px var(--color-accent-soft);
 }
 
 .btn-primary {
   width: 100%;
-  padding: 18px 32px;
-  background: linear-gradient(135deg, var(--color-accent) 0%, #0e3d33 100%);
-  color: white;
+  padding: 20px 36px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0a2d27 100%);
+  color: var(--color-text-on-accent);
   border: none;
   border-radius: var(--radius-md);
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(24, 90, 79, 0.25);
+  box-shadow: 0 12px 32px rgba(14, 61, 52, 0.4);
   font-family: var(--font-sans);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(24, 90, 79, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(14, 61, 52, 0.5);
 }
 
 .form-meta {
-  margin-top: 24px;
-  padding-top: 24px;
+  margin-top: 28px;
+  padding-top: 28px;
   border-top: 1px solid var(--color-border-subtle);
 }
 
@@ -248,7 +272,7 @@ h1, h2, h3 {
   gap: 12px;
   font-size: 14px;
   color: var(--color-text-muted);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .meta-icon {
@@ -258,51 +282,86 @@ h1, h2, h3 {
 }
 
 /* ============================================
-   IS THIS FOR YOU
+   SECTION WRAPPER
    ============================================ */
 
 .section {
   padding: 100px 0;
+  position: relative;
 }
 
-.section-white {
+.section-card {
   background: var(--color-card);
+  border-radius: var(--radius-lg);
+  padding: 64px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
 }
 
 .section-title {
-  font-size: 42px;
+  font-size: 44px;
   text-align: center;
   margin-bottom: 48px;
+  color: var(--color-accent);
 }
 
-.for-you-card {
-  background: var(--color-card);
-  border: 1px solid var(--color-border-subtle);
+/* ============================================
+   IS THIS FOR YOU
+   ============================================ */
+
+.for-you-section {
+  background: var(--color-card-alt);
   border-radius: var(--radius-lg);
-  padding: 60px;
-  max-width: 960px;
-  margin: 0 auto;
+  padding: 64px;
   box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.for-you-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(14, 61, 52, 0.02) 10px,
+      rgba(14, 61, 52, 0.02) 20px
+    );
+  pointer-events: none;
+  border-radius: var(--radius-lg);
 }
 
 .for-you-intro {
   text-align: center;
-  font-size: 18px;
+  font-size: 19px;
   color: var(--color-text-muted);
-  margin-bottom: 48px;
+  margin-bottom: 52px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .for-you-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 40px;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 56px;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.for-you-divider {
+  background: linear-gradient(to bottom, transparent, var(--color-border-subtle) 20%, var(--color-border-subtle) 80%, transparent);
 }
 
 .for-you-col h4 {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin-bottom: 24px;
   font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--color-accent);
 }
 
 .for-you-list {
@@ -311,23 +370,24 @@ h1, h2, h3 {
 
 .for-you-list li {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: flex-start;
-  margin-bottom: 16px;
-  line-height: 1.6;
+  margin-bottom: 18px;
+  line-height: 1.65;
+  font-size: 16px;
 }
 
 .icon-check,
 .icon-x {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   margin-top: 2px;
 }
 
@@ -337,24 +397,29 @@ h1, h2, h3 {
 }
 
 .icon-x {
-  background: #FEE;
-  color: #C76B3C;
+  background: rgba(200, 107, 61, 0.15);
+  color: var(--color-accent-secondary);
 }
 
 .commitment-box {
-  background: var(--color-bg);
-  border-left: 4px solid var(--color-accent);
-  padding: 24px 32px;
+  background: linear-gradient(135deg, rgba(14, 61, 52, 0.08), rgba(244, 194, 106, 0.08));
+  border-left: 5px solid var(--color-accent);
+  padding: 28px 36px;
   border-radius: var(--radius-md);
-  margin-top: 40px;
-  font-size: 18px;
-  font-weight: 500;
+  margin-top: 48px;
+  font-size: 19px;
+  font-weight: 600;
   line-height: 1.6;
+  color: var(--color-accent);
+  position: relative;
+  z-index: 1;
 }
 
 .cta-center {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 44px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ============================================
@@ -363,39 +428,34 @@ h1, h2, h3 {
 
 .story-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 60px;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
   align-items: start;
-  max-width: 960px;
-  margin: 0 auto;
 }
 
 .bailey-photo {
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-accent-soft) 0%, var(--color-border-subtle) 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 72px;
+  font-size: 96px;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-card);
   box-shadow: var(--shadow-soft);
-}
-
-.story-content h3 {
-  font-size: 32px;
-  margin-bottom: 24px;
+  position: relative;
+  margin-left: -32px;
 }
 
 .stats-strip {
   display: flex;
-  gap: 32px;
-  margin: 24px 0;
-  padding: 24px 0;
-  border-top: 1px solid var(--color-border-subtle);
-  border-bottom: 1px solid var(--color-border-subtle);
+  gap: 36px;
+  margin: 28px 0;
+  padding: 28px 0;
+  border-top: 2px solid var(--color-border-subtle);
+  border-bottom: 2px solid var(--color-border-subtle);
 }
 
 .stat-item {
@@ -403,89 +463,151 @@ h1, h2, h3 {
 }
 
 .stat-number {
-  font-size: 32px;
+  font-size: 36px;
   font-family: var(--font-serif);
   font-weight: 700;
   color: var(--color-accent);
   display: block;
+  line-height: 1;
 }
 
 .stat-label {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.7px;
+  margin-top: 8px;
+  display: block;
 }
 
 .story-text {
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--color-text-main);
   margin: 24px 0;
 }
 
 .paradigm-compare {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
   margin-top: 48px;
-}
-
-.paradigm-card {
-  background: var(--color-bg-alt);
-  border: 1px solid var(--color-border-subtle);
+  padding: 32px;
+  background: var(--color-card-alt);
   border-radius: var(--radius-md);
-  padding: 24px;
-  text-align: center;
 }
 
-.paradigm-card.highlight {
-  background: var(--color-accent-soft);
-  border-color: var(--color-accent);
-}
-
-.paradigm-card h5 {
-  font-size: 16px;
-  margin-bottom: 12px;
+.paradigm-col h5 {
+  font-size: 17px;
+  margin-bottom: 16px;
   font-family: var(--font-sans);
+  font-weight: 700;
 }
 
-.paradigm-card p {
-  font-size: 14px;
+.paradigm-col.old h5 {
   color: var(--color-text-muted);
-  line-height: 1.5;
+}
+
+.paradigm-col.new h5 {
+  color: var(--color-accent);
+}
+
+.paradigm-col ul {
+  list-style: none;
+}
+
+.paradigm-col li {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.paradigm-col li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 .calibration {
-  background: var(--color-bg-alt);
-  border-left: 4px solid var(--color-accent-secondary);
-  padding: 20px 28px;
+  background: rgba(244, 194, 106, 0.12);
+  border-left: 4px solid var(--color-highlight);
+  padding: 24px 32px;
   border-radius: var(--radius-md);
-  margin-top: 32px;
-  font-size: 16px;
+  margin-top: 36px;
+  font-size: 17px;
   font-style: italic;
-  color: var(--color-text-muted);
+  color: var(--color-text-main);
+  font-weight: 500;
 }
 
 /* ============================================
-   3-DAY CHALLENGE
+   CHALLENGE RIBBON
    ============================================ */
+
+.challenge-section {
+  position: relative;
+}
+
+.challenge-card {
+  background: var(--color-card);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 64px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, var(--color-accent) 0%, #0a2d27 100%);
+  color: var(--color-text-on-accent);
+  padding: 14px 64px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.challenge-content {
+  padding-top: 32px;
+}
 
 .challenge-intro {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 60px;
+  margin: 0 auto 56px;
 }
 
 .challenge-intro h2 {
   font-size: 42px;
   margin-bottom: 20px;
+  color: var(--color-accent);
 }
 
 .challenge-intro p {
   font-size: 18px;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+/* ============================================
+   DAY CARDS
+   ============================================ */
+
+.days-band {
+  background: var(--color-card-alt);
+  padding: 80px 0;
+  margin: 60px -64px -64px;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 
 .days-grid {
@@ -496,67 +618,86 @@ h1, h2, h3 {
 
 .day-card {
   background: var(--color-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius-md);
+  padding: 40px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+.day-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-highlight));
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
 .day-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .day-label {
   display: inline-block;
-  padding: 6px 16px;
+  padding: 7px 18px;
   background: var(--color-accent-soft);
   color: var(--color-accent);
   border-radius: var(--radius-pill);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   margin-bottom: 20px;
 }
 
+.day-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  display: block;
+}
+
 .day-card h4 {
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 23px;
+  margin-bottom: 24px;
   font-family: var(--font-serif);
+  color: var(--color-accent);
+  line-height: 1.3;
 }
 
 .day-card ul {
   list-style: none;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .day-card li {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: flex-start;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .day-card li::before {
   content: "→";
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 700;
   flex-shrink: 0;
 }
 
 .btn-soft {
   width: 100%;
-  padding: 14px 24px;
-  background: var(--color-card);
+  padding: 16px 28px;
+  background: transparent;
   color: var(--color-accent);
-  border: 1.5px solid var(--color-accent);
+  border: 2px solid var(--color-accent);
   border-radius: var(--radius-md);
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: var(--font-sans);
@@ -567,60 +708,131 @@ h1, h2, h3 {
 }
 
 /* ============================================
-   OUTCOMES
+   SCARCITY
    ============================================ */
 
-.outcomes-intro {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
-}
-
-.outcomes-intro p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  margin-top: 20px;
-}
-
-.outcomes-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 48px;
-}
-
-.outcome-pillar {
+.scarcity-card {
   background: var(--color-card);
-  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
-  padding: 40px;
+  padding: 64px;
+  box-shadow: var(--shadow-soft);
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  position: relative;
 }
 
-.outcome-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 24px;
-  background: var(--color-accent-soft);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
+.scarcity-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 8px,
+      rgba(200, 107, 61, 0.03) 8px,
+      rgba(200, 107, 61, 0.03) 16px
+    );
+  pointer-events: none;
+  border-radius: var(--radius-lg);
 }
 
-.outcome-pillar h4 {
-  font-size: 24px;
-  margin-bottom: 16px;
-  font-family: var(--font-serif);
+.scarcity-card h3 {
+  font-size: 36px;
+  margin-bottom: 24px;
+  color: var(--color-accent);
+  position: relative;
+  z-index: 1;
 }
 
-.outcome-pillar p {
-  font-size: 16px;
-  line-height: 1.6;
+.scarcity-card > p {
+  font-size: 18px;
   color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.scarcity-list {
+  list-style: none;
+  text-align: left;
+  max-width: 600px;
+  margin: 36px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.scarcity-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.scarcity-list li::before {
+  content: "⚡";
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.countdown-wrapper {
+  background: var(--color-card-alt);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  margin: 40px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.countdown-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.countdown-unit {
+  text-align: center;
+}
+
+.countdown-number {
+  display: block;
+  font-size: 56px;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.countdown-text {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+  display: block;
+}
+
+.catch-text {
+  font-style: italic;
+  margin: 32px 0;
+  font-size: 17px;
+  color: var(--color-text-muted);
+  position: relative;
+  z-index: 1;
 }
 
 /* ============================================
@@ -629,13 +841,13 @@ h1, h2, h3 {
 
 .proof-intro {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 56px;
 }
 
 .proof-intro p {
   font-size: 18px;
   color: var(--color-text-muted);
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .testimonials-grid {
@@ -646,10 +858,14 @@ h1, h2, h3 {
 
 .testimonial-card {
   background: var(--color-card);
-  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
-  padding: 32px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: 36px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
 }
 
 .test-header {
@@ -660,22 +876,22 @@ h1, h2, h3 {
 }
 
 .test-avatar {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-highlight) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   flex-shrink: 0;
 }
 
 .test-meta h5 {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
   margin-bottom: 4px;
   font-family: var(--font-sans);
 }
@@ -683,7 +899,7 @@ h1, h2, h3 {
 .test-tag {
   font-size: 13px;
   color: var(--color-accent);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .testimonial-card p {
@@ -696,35 +912,38 @@ h1, h2, h3 {
    BEFORE/AFTER
    ============================================ */
 
-.before-after-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
 .before-after-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  background: var(--color-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-lg);
 }
 
 .ba-column {
-  padding: 48px;
+  padding: 52px;
 }
 
 .ba-column:first-child {
-  background: #FAF8F6;
-  border-right: 1px solid var(--color-border-subtle);
+  background: rgba(132, 115, 106, 0.08);
+}
+
+.ba-column:last-child {
+  background: var(--color-card);
 }
 
 .ba-column h4 {
-  font-size: 24px;
-  margin-bottom: 28px;
+  font-size: 26px;
+  margin-bottom: 32px;
   font-family: var(--font-serif);
+}
+
+.ba-column:first-child h4 {
+  color: var(--color-text-muted);
+}
+
+.ba-column:last-child h4 {
+  color: var(--color-accent);
 }
 
 .ba-column ul {
@@ -733,18 +952,19 @@ h1, h2, h3 {
 
 .ba-column li {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: flex-start;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .ba-column:first-child li::before {
   content: "✗";
-  color: #C76B3C;
+  color: var(--color-accent-secondary);
   font-weight: 700;
   flex-shrink: 0;
+  font-size: 18px;
 }
 
 .ba-column:last-child li::before {
@@ -752,102 +972,7 @@ h1, h2, h3 {
   color: var(--color-accent);
   font-weight: 700;
   flex-shrink: 0;
-}
-
-/* ============================================
-   SCARCITY
-   ============================================ */
-
-.scarcity-band {
-  background: linear-gradient(135deg, var(--color-accent-soft) 0%, #FFF7F1 100%);
-  padding: 80px 0;
-}
-
-.scarcity-card {
-  background: var(--color-card);
-  border: 2px solid var(--color-accent);
-  border-radius: var(--radius-lg);
-  padding: 56px;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: var(--shadow-soft);
-}
-
-.scarcity-card h3 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.scarcity-card > p {
   font-size: 18px;
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  margin-bottom: 36px;
-}
-
-.scarcity-list {
-  list-style: none;
-  text-align: left;
-  max-width: 600px;
-  margin: 32px auto;
-}
-
-.scarcity-list li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.scarcity-list li::before {
-  content: "⚡";
-  flex-shrink: 0;
-}
-
-.countdown-wrapper {
-  background: var(--color-bg);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  margin: 32px 0;
-}
-
-.countdown-label {
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--color-text-muted);
-  margin-bottom: 16px;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-}
-
-.countdown-unit {
-  text-align: center;
-}
-
-.countdown-number {
-  display: block;
-  font-size: 48px;
-  font-family: var(--font-serif);
-  font-weight: 700;
-  color: var(--color-accent);
-  line-height: 1;
-}
-
-.countdown-text {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--color-text-muted);
-  margin-top: 8px;
 }
 
 /* ============================================
@@ -861,37 +986,38 @@ h1, h2, h3 {
 
 .faq-item {
   background: var(--color-card);
-  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .faq-question {
   width: 100%;
-  padding: 24px 28px;
+  padding: 26px 32px;
   background: transparent;
   border: none;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   text-align: left;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-sans);
-  color: var(--color-text-main);
+  color: var(--color-accent);
   transition: background 0.3s ease;
 }
 
 .faq-question:hover {
-  background: var(--color-bg-alt);
+  background: var(--color-card-alt);
 }
 
 .faq-icon {
-  font-size: 24px;
+  font-size: 28px;
   color: var(--color-accent);
   transition: transform 0.3s ease;
+  font-weight: 400;
 }
 
 .faq-item.active .faq-icon {
@@ -901,32 +1027,33 @@ h1, h2, h3 {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px;
-  padding: 0 28px 28px;
+  max-height: 600px;
+  padding: 0 32px 32px;
 }
 
 .faq-answer p {
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--color-text-muted);
 }
 
 .final-cta {
   text-align: center;
-  margin-top: 60px;
-  padding: 60px 40px;
-  background: var(--color-bg-alt);
+  margin-top: 64px;
+  padding: 56px 44px;
+  background: var(--color-card-alt);
   border-radius: var(--radius-lg);
 }
 
 .final-cta p {
-  font-size: 18px;
+  font-size: 19px;
   color: var(--color-text-muted);
   margin-bottom: 32px;
+  font-weight: 500;
 }
 
 /* ============================================
@@ -934,15 +1061,14 @@ h1, h2, h3 {
    ============================================ */
 
 footer {
-  background: var(--color-text-main);
-  color: var(--color-bg);
-  padding: 48px 0;
+  padding: 60px 0;
   text-align: center;
+  color: var(--color-card-alt);
+  opacity: 0.6;
 }
 
 footer p {
   font-size: 14px;
-  opacity: 0.7;
 }
 
 /* ============================================
@@ -961,7 +1087,7 @@ footer p {
   }
 
   .hero h1 {
-    font-size: 40px;
+    font-size: 38px;
   }
 
   .story-grid {
@@ -970,7 +1096,7 @@ footer p {
   }
 
   .bailey-photo {
-    margin: 0 auto 32px;
+    margin: 0 auto 36px;
   }
 
   .stats-strip {
@@ -982,7 +1108,6 @@ footer p {
   }
 
   .days-grid,
-  .outcomes-grid,
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
@@ -991,14 +1116,24 @@ footer p {
     grid-template-columns: 1fr;
   }
 
-  .ba-column:first-child {
-    border-right: none;
-    border-bottom: 1px solid var(--color-border-subtle);
-  }
-
   .for-you-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
+  }
+
+  .for-you-divider {
+    display: none;
+  }
+
+  .section-card,
+  .for-you-section,
+  .challenge-card,
+  .scarcity-card {
+    padding: 44px 32px;
+  }
+
+  .ribbon {
+    padding: 12px 32px;
   }
 }
 
@@ -1011,13 +1146,8 @@ footer p {
     font-size: 32px;
   }
 
-  .for-you-card,
-  .scarcity-card {
-    padding: 32px 24px;
-  }
-
   .form-card {
-    padding: 28px 20px;
+    padding: 32px 24px;
   }
 
   .countdown {
@@ -1025,7 +1155,17 @@ footer p {
   }
 
   .countdown-number {
-    font-size: 36px;
+    font-size: 42px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .bailey-photo {
+    width: 240px;
+    height: 240px;
+    font-size: 72px;
   }
 }
 </style>
@@ -1039,14 +1179,14 @@ footer p {
       <div class="hero-left">
         <div class="badge">
           <span class="badge-dot"></span>
-          <span>FREE LIVE WORKSHOP</span>
+          <span>Free Live Workshop</span>
         </div>
 
         <h1>How 35–55 Year Old Women Are Using AI To Build $3–10K/Month Etsy Shops Selling $3 Digital Files… Without Being 'Techy' Or Posting On Social Media</h1>
 
         <p class="hero-subhead">Even if you've tried Etsy before, feel late to the AI trend, and only have 5–10 hours a week.</p>
 
-        <div class="vsl-placeholder">
+        <div class="vsl-mockup">
           <div class="play-button">
             <div class="play-icon"></div>
           </div>
@@ -1093,7 +1233,7 @@ footer p {
   <div class="container">
     <h2 class="section-title">Is This Workshop For You?</h2>
 
-    <div class="for-you-card">
+    <div class="for-you-section">
       <p class="for-you-intro">This workshop is designed specifically for women who are done with empty promises and want a real, data-backed path to income.</p>
 
       <div class="for-you-grid">
@@ -1106,6 +1246,8 @@ footer p {
             <li><span class="icon-check">✓</span><span>You don't want to dance on TikTok or become a 'content creator' just to make sales.</span></li>
           </ul>
         </div>
+
+        <div class="for-you-divider"></div>
 
         <div class="for-you-col">
           <h4>This is NOT for you if:</h4>
@@ -1129,131 +1271,161 @@ footer p {
 </section>
 
 <!-- SECTION 3: BAILEY STORY + PARADIGM -->
-<section class="section section-white">
-  <div class="container">
-    <div class="story-grid">
-      <div class="bailey-photo">
-        BV
-      </div>
-
-      <div class="story-content">
-        <h3>From Stay-at-Home Mom to 7-Figure Etsy Empire</h3>
-
-        <div class="stats-strip">
-          <div class="stat-item">
-            <span class="stat-number">$1M+</span>
-            <span class="stat-label">Verified Revenue</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">386K+</span>
-            <span class="stat-label">Sales</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">7-Fig</span>
-            <span class="stat-label">Shop Owner</span>
-          </div>
-        </div>
-
-        <p class="story-text">I started as a stay-at-home mom looking for extra income without leaving my kids. While everyone else in the Etsy space was hiding their shops and playing algorithm games, I went radically transparent—and still grew by $58K after going public.</p>
-
-        <p class="story-text">My epiphany: The market rewards speed and consistency, not perfect design. AI and data tools completely remove the "I'm not a designer" excuse. You don't need to be artistic—you need to be strategic.</p>
-
-        <div class="paradigm-compare">
-          <div class="paradigm-card">
-            <h5>❌ The Old Way</h5>
-            <p>Manual keyword guessing, designing from scratch, hoping the algorithm finds you</p>
-          </div>
-
-          <div class="paradigm-card highlight">
-            <h5>✓ The New Way</h5>
-            <p>Data + AI + email list = predictable revenue without algorithm worship</p>
-          </div>
-
-          <div class="paradigm-card">
-            <h5>🚀 The Workshop</h5>
-            <p>I'll show you my AI prompts + research tools so you never create blind again</p>
-          </div>
-        </div>
-
-        <div class="calibration">
-          If this is what I can show you on a free live workshop, imagine what it's like inside my Empire Accelerator.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 4: 3-DAY CHALLENGE -->
 <section class="section">
   <div class="container">
-    <div class="challenge-intro">
-      <h2>Free 3-Day AI Etsy Escape Plan</h2>
-      <p>This is a one-time, 3-day live challenge where I'm pulling back the curtain on the exact system I usually only build with my $2.5K+ Empire Accelerator students.</p>
-    </div>
+    <div class="section-card">
+      <div class="story-grid">
+        <div class="bailey-photo">
+          BV
+        </div>
 
-    <div class="days-grid">
-      <div class="day-card">
-        <div class="day-label">Day 1 • Product</div>
-        <h4>Find Your Winning AI-Powered Etsy Product</h4>
-        <ul>
-          <li>Discover the 3 product types that are still unsaturated for 2025–2026 (with live examples)</li>
-          <li>See how to use Bailey's research method to predict what will sell before you design it</li>
-          <li>Leave with a short list of 3–5 product ideas tailored to your life situation</li>
-        </ul>
-        <button class="btn-soft" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Yes, Save My Free Spot</button>
-      </div>
+        <div class="story-content">
+          <h3 style="font-size: 36px; margin-bottom: 20px; color: var(--color-accent);">From Stay-at-Home Mom to 7-Figure Etsy Empire</h3>
 
-      <div class="day-card">
-        <div class="day-label">Day 2 • Design</div>
-        <h4>Create Irresistible Listings Without Being A Designer</h4>
-        <ul>
-          <li>Watch Bailey build a product live using AI tools, so you can copy the workflow step-by-step</li>
-          <li>Learn the title/tag framework she used to rank thousands of listings</li>
-          <li>See how to create scroll-stopping mockups that don't look 'homemade'</li>
-        </ul>
-        <button class="btn-soft" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Yes, Save My Free Spot</button>
-      </div>
+          <div class="stats-strip">
+            <div class="stat-item">
+              <span class="stat-number">$1M+</span>
+              <span class="stat-label">Verified Revenue</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">386K+</span>
+              <span class="stat-label">Sales</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">7-Fig</span>
+              <span class="stat-label">Etsy Shop</span>
+            </div>
+          </div>
 
-      <div class="day-card">
-        <div class="day-label">Day 3 • Traffic</div>
-        <h4>The Automated Traffic Circle: Stop Relying On Etsy's Algorithm</h4>
-        <ul>
-          <li>Understand Bailey's email list system that grew to 20,000 subscribers and pushed her shop over $1M</li>
-          <li>How to turn one buyer into repeat revenue (without spamming them)</li>
-          <li>The exact next steps if you want hand-holding via Empire Accelerator</li>
-        </ul>
-        <button class="btn-soft" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Yes, Save My Free Spot</button>
+          <p class="story-text">I started as a stay-at-home mom looking for extra income without leaving my kids. While everyone else in the Etsy space was hiding their shops and playing algorithm games, I went radically transparent—and still grew by $58K after going public.</p>
+
+          <p class="story-text">My epiphany: The market rewards speed and consistency, not perfect design. AI and data tools completely remove the "I'm not a designer" excuse. You don't need to be artistic—you need to be strategic.</p>
+
+          <div class="paradigm-compare">
+            <div class="paradigm-col old">
+              <h5>❌ The Old Way (Manual)</h5>
+              <ul>
+                <li>Manual keyword guessing</li>
+                <li>Designing from scratch</li>
+                <li>Hoping for the algorithm</li>
+              </ul>
+            </div>
+
+            <div class="paradigm-col new">
+              <h5>✓ The New Way (AI + Data)</h5>
+              <ul>
+                <li>AI-powered research</li>
+                <li>Data-backed products</li>
+                <li>Build your own traffic</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="calibration">
+            If this is what I can show you on a free live workshop, imagine what it's like inside my Empire Accelerator.
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 5: OUTCOMES -->
-<section class="section section-white">
+<!-- SECTION 4: CHALLENGE + 3 DAYS -->
+<section class="section challenge-section">
   <div class="container">
-    <div class="outcomes-intro">
-      <h2 class="section-title">What This Can Do For You</h2>
-      <p>This isn't just about learning tactics. It's about transforming how you approach online income—from guessing and hoping to knowing and executing with confidence.</p>
+    <div class="challenge-card">
+      <div class="ribbon">Free 3-Day AI Etsy Escape Plan</div>
+
+      <div class="challenge-content">
+        <div class="challenge-intro">
+          <h2>A Once-In-A-Lifetime 3-Day Challenge</h2>
+          <p>This is a one-time, 3-day live challenge where I'm pulling back the curtain on the exact system I usually only build with my $2.5K+ Empire Accelerator students.</p>
+        </div>
+
+        <div class="days-band">
+          <div class="container">
+            <div class="days-grid">
+              <div class="day-card">
+                <div class="day-label">Day 1 • Product</div>
+                <span class="day-icon">💡</span>
+                <h4>Find Your Winning AI-Powered Etsy Product</h4>
+                <ul>
+                  <li>Discover the 3 product types that are still unsaturated for 2025–2026 (with live examples)</li>
+                  <li>See how to use Bailey's research method to predict what will sell before you design it</li>
+                  <li>Leave with a short list of 3–5 product ideas tailored to your life situation</li>
+                </ul>
+                <button class="btn-soft" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Yes, Save My Free Spot</button>
+              </div>
+
+              <div class="day-card">
+                <div class="day-label">Day 2 • Design</div>
+                <span class="day-icon">🎨</span>
+                <h4>Create Irresistible Listings Without Being A Designer</h4>
+                <ul>
+                  <li>Watch Bailey build a product live using AI tools, so you can copy the workflow step-by-step</li>
+                  <li>Learn the title/tag framework she used to rank thousands of listings</li>
+                  <li>See how to create scroll-stopping mockups that don't look 'homemade'</li>
+                </ul>
+                <button class="btn-soft" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Yes, Save My Free Spot</button>
+              </div>
+
+              <div class="day-card">
+                <div class="day-label">Day 3 • Traffic</div>
+                <span class="day-icon">🔄</span>
+                <h4>The Automated Traffic Circle: Stop Relying On Etsy's Algorithm</h4>
+                <ul>
+                  <li>Understand Bailey's email list system that grew to 20,000 subscribers and pushed her shop over $1M</li>
+                  <li>How to turn one buyer into repeat revenue (without spamming them)</li>
+                  <li>The exact next steps if you want hand-holding via Empire Accelerator</li>
+                </ul>
+                <button class="btn-soft" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Yes, Save My Free Spot</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="outcomes-grid">
-      <div class="outcome-pillar">
-        <div class="outcome-icon">💰</div>
-        <h4>Money / Income</h4>
-        <p>Go from guessing to knowing exactly what to design, because your products are backed by live Etsy data – not vibes. Replace late-night money stress with waking up to Etsy cha-ching notifications.</p>
+<!-- SECTION 5: SCARCITY -->
+<section class="section">
+  <div class="container">
+    <div class="scarcity-card">
+      <h3>Quick Heads-Up: This Is A One-Time Event</h3>
+      <p>I'm doing this once as a live beta before I raise the price of my Empire Accelerator again and move to a sales-call model.</p>
+
+      <ul class="scarcity-list">
+        <li>Zoom room capped at 500 attendees to protect Q&A and chat quality</li>
+        <li>Replays only available for 72 hours after each session</li>
+        <li>No plans to run this free format again after this cohort</li>
+      </ul>
+
+      <div class="countdown-wrapper">
+        <div class="countdown-label">Workshop Starts In:</div>
+        <div class="countdown">
+          <div class="countdown-unit">
+            <span class="countdown-number" id="days">12</span>
+            <span class="countdown-text">Days</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="hours">08</span>
+            <span class="countdown-text">Hours</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="minutes">34</span>
+            <span class="countdown-text">Minutes</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="seconds">52</span>
+            <span class="countdown-text">Seconds</span>
+          </div>
+        </div>
       </div>
 
-      <div class="outcome-pillar">
-        <div class="outcome-icon">⏰</div>
-        <h4>Time / Flexibility</h4>
-        <p>See a clear path to $3–10K/mo that doesn't involve starting a YouTube channel, becoming an influencer, or learning Facebook ad manager. Build this around your family schedule.</p>
-      </div>
+      <p class="catch-text">There is a catch: to get all three days live plus the replay rights, you have to put your name down before we go live on Dec 2 at 7PM EST. Once the room is full, the doors close.</p>
 
-      <div class="outcome-pillar">
-        <div class="outcome-icon">✨</div>
-        <h4>Confidence / Clarity</h4>
-        <p>Stop feeling embarrassed when family asks "how's that thing you're doing?" Start having real numbers to share. Finally break the cycle of starting and quitting.</p>
-      </div>
+      <button class="btn-primary" style="max-width: 480px; margin: 0 auto; display: block;" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Yes, Save My Free Spot For The Live AI Etsy Workshop</button>
     </div>
   </div>
 </section>
@@ -1261,87 +1433,89 @@ footer p {
 <!-- SECTION 6: SOCIAL PROOF -->
 <section class="section">
   <div class="container">
-    <div class="proof-intro">
-      <h2 class="section-title">Real Results From Students Like You</h2>
-      <p>See what women just like you are achieving with Bailey's system</p>
-    </div>
-
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="test-header">
-          <div class="test-avatar">S</div>
-          <div class="test-meta">
-            <h5>Sarah M.</h5>
-            <div class="test-tag">Beginner → First Sale</div>
-          </div>
-        </div>
-        <p>"Etsy finally clicked after 5 failed shops. Bailey's data-driven approach made all the difference. I'm not techy and still did this."</p>
+    <div class="section-card">
+      <div class="proof-intro">
+        <h2 class="section-title">Real Results From Students Like You</h2>
+        <p>See what women just like you are achieving with Bailey's system</p>
       </div>
 
-      <div class="testimonial-card">
-        <div class="test-header">
-          <div class="test-avatar">J</div>
-          <div class="test-meta">
-            <h5>Jennifer L.</h5>
-            <div class="test-tag">Started at 47</div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="test-header">
+            <div class="test-avatar">S</div>
+            <div class="test-meta">
+              <h5>Sarah M.</h5>
+              <div class="test-tag">Beginner → First Sale</div>
+            </div>
           </div>
+          <p>"Etsy finally clicked after 5 failed shops. Bailey's data-driven approach made all the difference. I'm not techy and still did this."</p>
         </div>
-        <p>"I started at 47 with grandkids and it still works. The AI tools remove all the 'I'm not creative' excuses I had."</p>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="test-header">
-          <div class="test-avatar">M</div>
-          <div class="test-meta">
-            <h5>Michelle K.</h5>
-            <div class="test-tag">Busy Mom → $2K/mo</div>
+        <div class="testimonial-card">
+          <div class="test-header">
+            <div class="test-avatar">J</div>
+            <div class="test-meta">
+              <h5>Jennifer L.</h5>
+              <div class="test-tag">Started at 47</div>
+            </div>
           </div>
+          <p>"I started at 47 with grandkids and it still works. The AI tools remove all the 'I'm not creative' excuses I had."</p>
         </div>
-        <p>"From burned-out corporate manager to consistent $2K months. Bailey's system is the real deal—no fluff, just results."</p>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="test-header">
-          <div class="test-avatar">R</div>
-          <div class="test-meta">
-            <h5>Rachel T.</h5>
-            <div class="test-tag">First $1K Month</div>
+        <div class="testimonial-card">
+          <div class="test-header">
+            <div class="test-avatar">M</div>
+            <div class="test-meta">
+              <h5>Michelle K.</h5>
+              <div class="test-tag">Course Junkie → Profitable</div>
+            </div>
           </div>
+          <p>"I've bought 20+ courses. This is the first one that actually worked because Bailey shows receipts and teaches implementation."</p>
         </div>
-        <p>"Hit my first $1K month within 90 days. The data-backed approach means I'm not just guessing what to create anymore."</p>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="test-header">
-          <div class="test-avatar">L</div>
-          <div class="test-meta">
-            <h5>Lisa H.</h5>
-            <div class="test-tag">Course Junkie → Profitable</div>
+        <div class="testimonial-card">
+          <div class="test-header">
+            <div class="test-avatar">R</div>
+            <div class="test-meta">
+              <h5>Rachel T.</h5>
+              <div class="test-tag">First $1K Month</div>
+            </div>
           </div>
+          <p>"Hit my first $1K month within 90 days. The data-backed approach means I'm not just guessing what to create anymore."</p>
         </div>
-        <p>"I've bought 20+ courses. This is the first one that actually worked because Bailey shows receipts and teaches implementation."</p>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="test-header">
-          <div class="test-avatar">D</div>
-          <div class="test-meta">
-            <h5>Donna P.</h5>
-            <div class="test-tag">45+ and Succeeding</div>
+        <div class="testimonial-card">
+          <div class="test-header">
+            <div class="test-avatar">L</div>
+            <div class="test-meta">
+              <h5>Lisa H.</h5>
+              <div class="test-tag">Busy Mom → $2K/mo</div>
+            </div>
           </div>
+          <p>"From burned-out corporate manager to consistent $2K months. Bailey's system is the real deal—no fluff, just results."</p>
         </div>
-        <p>"Proof that you're never too old. I'm 52, have a full-time job, and I'm making this work in my spare time. No social media required."</p>
+
+        <div class="testimonial-card">
+          <div class="test-header">
+            <div class="test-avatar">D</div>
+            <div class="test-meta">
+              <h5>Donna P.</h5>
+              <div class="test-tag">45+ and Succeeding</div>
+            </div>
+          </div>
+          <p>"Proof that you're never too old. I'm 52, have a full-time job, and I'm making this work in my spare time. No social media required."</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SECTION 7: BEFORE/AFTER -->
-<section class="section section-white">
+<section class="section">
   <div class="container">
     <h2 class="section-title">Before vs. After This Challenge</h2>
 
-    <div class="before-after-wrapper">
+    <div class="section-card" style="padding: 0; overflow: hidden;">
       <div class="before-after-grid">
         <div class="ba-column">
           <h4>Before</h4>
@@ -1367,49 +1541,7 @@ footer p {
   </div>
 </section>
 
-<!-- SECTION 8: SCARCITY/URGENCY -->
-<section class="scarcity-band">
-  <div class="container">
-    <div class="scarcity-card">
-      <h3>Quick Heads-Up: This Is A One-Time Event</h3>
-      <p>I'm doing this once as a live beta before I raise the price of my Empire Accelerator again and move to a sales-call model.</p>
-
-      <ul class="scarcity-list">
-        <li>Zoom room capped at 500 attendees to protect Q&A and chat quality</li>
-        <li>Replays only available for 72 hours after each session</li>
-        <li>No plans to run this free format again after this cohort</li>
-      </ul>
-
-      <div class="countdown-wrapper">
-        <div class="countdown-label">Workshop Starts In:</div>
-        <div class="countdown">
-          <div class="countdown-unit">
-            <span class="countdown-number" id="days">--</span>
-            <span class="countdown-text">Days</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-number" id="hours">--</span>
-            <span class="countdown-text">Hours</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-number" id="minutes">--</span>
-            <span class="countdown-text">Minutes</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-number" id="seconds">--</span>
-            <span class="countdown-text">Seconds</span>
-          </div>
-        </div>
-      </div>
-
-      <p style="font-style: italic; margin: 24px 0;">There is a catch: to get all three days live plus the replay rights, you have to put your name down before we go live on Dec 2 at 7PM EST. Once the room is full, the doors close.</p>
-
-      <button class="btn-primary" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Yes, Save My Free Spot For The Live AI Etsy Workshop</button>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 9: FAQ -->
+<!-- SECTION 8: FAQ -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Frequently Asked Questions</h2>
@@ -1458,7 +1590,7 @@ footer p {
 
     <div class="final-cta">
       <p>Ready to stop guessing and start building your AI-powered Etsy shop?</p>
-      <button class="btn-primary" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Save My Free Spot For The Live AI Etsy Workshop</button>
+      <button class="btn-primary" style="max-width: 480px; margin: 0 auto; display: block;" onclick="document.querySelector('.form-card').scrollIntoView({behavior: 'smooth'})">Save My Free Spot For The Live AI Etsy Workshop</button>
     </div>
   </div>
 </section>
