@@ -453,6 +453,11 @@
     <div id="root"></div>
 
     <script type="text/babel">
+        console.log('Script loaded');
+        console.log('React:', typeof React);
+        console.log('ReactDOM:', typeof ReactDOM);
+        console.log('Babel:', typeof Babel);
+
         const { useState, useEffect } = React;
 
         /* ========================================
@@ -794,7 +799,7 @@
                                     marginBottom: '32px'
                                 }}>
                                     <BulletPoint icon="check-circle" color="sage">
-                                        Have your first product idea and "starter listings" mapped out before Day 1 even starts.
+                                        Have your first product idea and &quot;starter listings&quot; mapped out before Day 1 even starts.
                                     </BulletPoint>
                                     <BulletPoint icon="check-circle" color="sage">
                                         Know exactly what to do after each session instead of drowning in random notes.
@@ -1150,7 +1155,7 @@
                 {
                     number: 1,
                     title: "Pre-Challenge Shop Starter Kit",
-                    description: "As soon as you upgrade, you'll unlock a short "Day 0" video and checklist that walks you through choosing your niche, deciding your first product, and setting up the basics so you're not scrambling on Day 1.",
+                    description: `As soon as you upgrade, you'll unlock a short "Day 0" video and checklist that walks you through choosing your niche, deciding your first product, and setting up the basics so you're not scrambling on Day 1.`,
                     bullets: [
                         "Decide your product lane without overthinking or second-guessing.",
                         "Pick a simple first offer you can actually finish in a weekend.",
@@ -1161,7 +1166,7 @@
                 {
                     number: 2,
                     title: "VIP Challenge Workbook & AI Prompt Pack",
-                    description: "Free attendees get a simple note-taking guide. VIPs get Bailey's implementation workbook plus plug-and-play AI prompts for titles, descriptions, and product ideas so you can move from "learning" to "publishing" fast.",
+                    description: `Free attendees get a simple note-taking guide. VIPs get Bailey's implementation workbook plus plug-and-play AI prompts for titles, descriptions, and product ideas so you can move from "learning" to "publishing" fast.`,
                     bullets: [
                         "Daily pages that tell you exactly what to do after each session.",
                         "Copy-paste AI prompts for product ideas, SEO keywords, and listing descriptions.",
@@ -1176,14 +1181,14 @@
                     bullets: [
                         "Smaller room – only VIPs can submit questions.",
                         "Get feedback on your niche, product ideas, or early listings.",
-                        "Leave with a clear "next 7 days" implementation plan for your shop."
+                        `Leave with a clear "next 7 days" implementation plan for your shop.`
                     ],
                     note: "This session is not available to free attendees.",
                     imagePosition: 'left'
                 },
                 {
                     number: 4,
-                    title: "Private VIP WhatsApp "Green Room"",
+                    title: `Private VIP WhatsApp "Green Room"`,
                     description: "VIPs are invited into a private WhatsApp circle for the duration of the challenge so you're surrounded by people who actually plan to launch, not just lurk.",
                     bullets: [
                         "Daily reminders so you don't miss sessions or deadlines.",
@@ -1477,7 +1482,7 @@
             const faqs = [
                 {
                     question: "What exactly do I get when I upgrade to VIP?",
-                    answer: "You get everything in the free challenge ticket, plus the Pre-Challenge Shop Starter Kit, the VIP Workbook & AI Prompt Pack, the VIP-only Implementation Q&A with Bailey, the private WhatsApp "Green Room," extended replays, entry into the VIP shop audit / 1-on-1 draw, and a surprise launch tool just for VIPs."
+                    answer: `You get everything in the free challenge ticket, plus the Pre-Challenge Shop Starter Kit, the VIP Workbook & AI Prompt Pack, the VIP-only Implementation Q&A with Bailey, the private WhatsApp "Green Room," extended replays, entry into the VIP shop audit / 1-on-1 draw, and a surprise launch tool just for VIPs.`
                 },
                 {
                     question: "What if I can't attend the VIP Q&A live?",
@@ -1578,20 +1583,32 @@
         }
 
         // Render the app
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        console.log('About to render app...');
+        try {
+            const rootElement = document.getElementById('root');
+            console.log('Root element:', rootElement);
 
-        // Re-initialize Lucide icons whenever the DOM updates
-        const observer = new MutationObserver(() => {
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-        });
+            const root = ReactDOM.createRoot(rootElement);
+            console.log('Root created:', root);
 
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
+            root.render(<App />);
+            console.log('App rendered successfully!');
+
+            // Re-initialize Lucide icons whenever the DOM updates
+            const observer = new MutationObserver(() => {
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        } catch (error) {
+            console.error('Error rendering app:', error);
+            document.getElementById('root').innerHTML = '<div style="padding: 40px; font-family: sans-serif;"><h1>Error Loading Page</h1><p>' + error.message + '</p><p>Check browser console for details.</p></div>';
+        }
     </script>
 </body>
 </html>
