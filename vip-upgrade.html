@@ -453,6 +453,11 @@
     <div id="root"></div>
 
     <script type="text/babel">
+        console.log('Script loaded');
+        console.log('React:', typeof React);
+        console.log('ReactDOM:', typeof ReactDOM);
+        console.log('Babel:', typeof Babel);
+
         const { useState, useEffect } = React;
 
         /* ========================================
@@ -1578,20 +1583,32 @@
         }
 
         // Render the app
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        console.log('About to render app...');
+        try {
+            const rootElement = document.getElementById('root');
+            console.log('Root element:', rootElement);
 
-        // Re-initialize Lucide icons whenever the DOM updates
-        const observer = new MutationObserver(() => {
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-        });
+            const root = ReactDOM.createRoot(rootElement);
+            console.log('Root created:', root);
 
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
+            root.render(<App />);
+            console.log('App rendered successfully!');
+
+            // Re-initialize Lucide icons whenever the DOM updates
+            const observer = new MutationObserver(() => {
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        } catch (error) {
+            console.error('Error rendering app:', error);
+            document.getElementById('root').innerHTML = '<div style="padding: 40px; font-family: sans-serif;"><h1>Error Loading Page</h1><p>' + error.message + '</p><p>Check browser console for details.</p></div>';
+        }
     </script>
 </body>
 </html>
