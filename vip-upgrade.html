@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to Launch-Ready VIP Ticket | Bailey's Boring Business Challenge</title>
+    <meta name="description" content="Upgrade to the Launch-Ready VIP Ticket and turn the free challenge into a focused launch sprint with Bailey's direct help.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- React & Babel -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ========================================
+           WARM PREMIUM DESIGN SYSTEM
+        ======================================== */
+        :root {
+            /* Colors */
+            --cream-base: #FAF7F2;
+            --white: #FFFFFF;
+            --burgundy-primary: #8B2635;
+            --burgundy-hover: #A63F4E;
+            --terracotta: #D4856A;
+            --terracotta-hover: #C67557;
+            --sage-green: #A8B5A4;
+            --muted-red: #D47A7A;
+            --text-primary: #2D2D2D;
+            --text-muted: #6B6B6B;
+            --border-light: rgba(139, 38, 53, 0.06);
+            --gold-gradient-start: #D4856A;
+            --gold-gradient-end: #C9935A;
+
+            /* Typography */
+            --font-heading: 'Fraunces', serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing Scale (8px base) */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+            --space-4xl: 128px;
+
+            /* Shadows */
+            --shadow-card:
+                0 4px 24px rgba(139, 38, 53, 0.08),
+                0 1px 4px rgba(139, 38, 53, 0.04);
+            --shadow-button: 0 6px 20px rgba(139, 38, 53, 0.25);
+            --shadow-button-hover: 0 8px 28px rgba(139, 38, 53, 0.35);
+            --shadow-enhanced:
+                0 8px 32px rgba(139, 38, 53, 0.12),
+                0 2px 8px rgba(139, 38, 53, 0.06);
+        }
+
+        /* ========================================
+           RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--cream-base);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+        ======================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Mobile Typography */
+        @media (max-width: 768px) {
+            h1 { font-size: 48px; }
+            h2 { font-size: 40px; }
+            h3 { font-size: 28px; }
+            p { font-size: 17px; }
+        }
+
+        /* ========================================
+           CARD STYLES
+        ======================================== */
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            padding: 48px;
+            border: 1px solid transparent;
+            transition: border-color 300ms ease;
+        }
+
+        .card:hover {
+            border-color: var(--border-light);
+        }
+
+        .card-enhanced {
+            box-shadow: var(--shadow-enhanced);
+        }
+
+        @media (max-width: 1024px) {
+            .card { padding: 32px; }
+        }
+
+        @media (max-width: 768px) {
+            .card { padding: 24px; }
+        }
+
+        /* ========================================
+           BUTTON STYLES
+        ======================================== */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--burgundy-primary) 0%, var(--burgundy-hover) 100%);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 600;
+            padding: 20px 48px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-button);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            transition: transform 200ms ease, box-shadow 200ms ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-button-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--terracotta);
+            color: var(--burgundy-primary);
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            padding: 18px 48px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 200ms ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            border-color: var(--terracotta-hover);
+        }
+
+        .btn-inverted {
+            background: var(--white);
+            color: var(--burgundy-primary);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-inverted-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .btn-primary, .btn-secondary {
+                font-size: 17px;
+                padding: 18px 32px;
+            }
+            .btn-secondary {
+                padding: 16px 32px;
+            }
+        }
+
+        /* ========================================
+           LAYOUT UTILITIES
+        ======================================== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        .container-cards {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        .container-text {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        @media (max-width: 1024px) {
+            .container, .container-cards, .container-text {
+                padding: 0 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container, .container-cards, .container-text {
+                padding: 0 20px;
+            }
+        }
+
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: var(--space-2xl) 0;
+            }
+        }
+
+        /* ========================================
+           UTILITY CLASSES
+        ======================================== */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--gold-gradient-start) 0%, var(--gold-gradient-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--terracotta);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 24px;
+            border-radius: 20px;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ========================================
+           ICON STYLES
+        ======================================== */
+        .icon-check {
+            color: var(--sage-green);
+        }
+
+        .icon-x {
+            color: var(--muted-red);
+        }
+
+        .icon-terracotta {
+            color: var(--terracotta);
+        }
+
+        /* ========================================
+           PAPER TEXTURE EFFECT
+        ======================================== */
+        .paper-texture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ========================================
+           APP ROOT
+        ======================================== */
+        #root {
+            position: relative;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN - MOBILE
+        ======================================== */
+        @media (max-width: 1024px) {
+            /* Hero Section - Tablet */
+            .hero-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .sticky-card {
+                position: static !important;
+            }
+
+            /* Component Cards - Tablet */
+            .component-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Two-column grids - Tablet */
+            .two-col-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Alert Bar - Mobile */
+            .alert-bar {
+                height: auto !important;
+                padding: 12px 20px !important;
+            }
+
+            .alert-bar-text {
+                font-size: 14px !important;
+                line-height: 1.4 !important;
+            }
+
+            /* Hero - Mobile */
+            .hero-section {
+                padding-top: calc(76px + 48px) !important;
+                padding-bottom: 48px !important;
+            }
+
+            /* Buttons - Mobile */
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                font-size: 16px !important;
+                padding: 16px 24px !important;
+            }
+
+            /* Cards - Mobile */
+            .card {
+                padding: 24px !important;
+            }
+
+            /* Guarantee 100% - Mobile */
+            .guarantee-watermark {
+                font-size: 80px !important;
+            }
+
+            /* Component numbers - Mobile */
+            .component-number {
+                width: 48px !important;
+                height: 48px !important;
+                font-size: 20px !important;
+            }
+
+            /* FAQ - Mobile */
+            .faq-question {
+                font-size: 18px !important;
+            }
+
+            .faq-answer {
+                font-size: 17px !important;
+            }
+
+            /* Spacing adjustments */
+            .section {
+                padding: 56px 0 !important;
+            }
+
+            .section-gap-large {
+                gap: 48px !important;
+            }
+
+            .section-gap-medium {
+                gap: 32px !important;
+            }
+        }
+
+        /* ========================================
+           ACCESSIBILITY
+        ======================================== */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--terracotta);
+            outline-offset: 2px;
+        }
+
+        /* Smooth transitions */
+        * {
+            transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        /* ========================================
+           SECTION 0: ALERT BAR
+        ======================================== */
+        function AlertBar() {
+            return (
+                <div className="alert-bar" style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    background: 'linear-gradient(90deg, #8B2635 0%, #A63F4E 100%)',
+                    height: '56px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 50,
+                    padding: '0 20px'
+                }} role="banner" aria-live="polite">
+                    <div className="alert-bar-text" style={{
+                        color: 'white',
+                        fontSize: '15px',
+                        fontWeight: 600,
+                        letterSpacing: '0.5px',
+                        textAlign: 'center'
+                    }}>
+                        YOUR REGISTRATION ISN'T COMPLETE YET – DON'T CLOSE THIS PAGE.
+                    </div>
+                    <div style={{
+                        width: '100%',
+                        maxWidth: '600px',
+                        height: '8px',
+                        background: 'rgba(250, 247, 242, 0.2)',
+                        borderRadius: '4px',
+                        marginTop: '8px',
+                        overflow: 'hidden'
+                    }}>
+                        <div style={{
+                            width: '75%',
+                            height: '100%',
+                            background: '#A8B5A4',
+                            transition: 'width 1s ease-in-out'
+                        }} />
+                    </div>
+                </div>
+            );
+        }
+
+        /* ========================================
+           SECTION 1: HERO
+        ======================================== */
+        function Hero() {
+            return (
+                <section style={{
+                    background: 'var(--cream-base)',
+                    position: 'relative',
+                    paddingTop: 'calc(56px + 96px)',
+                    paddingBottom: '96px'
+                }} className="paper-texture hero-section">
+                    <div className="container">
+                        <div className="hero-grid" style={{
+                            display: 'grid',
+                            gridTemplateColumns: '55% 40%',
+                            gap: '5%',
+                            alignItems: 'start'
+                        }}>
+                            {/* Left Column */}
+                            <div>
+                                <h1 style={{ marginBottom: '24px' }}>
+                                    <span style={{ fontWeight: 400 }}>Upgrade to the</span>
+                                    <br />
+                                    <span style={{ fontWeight: 400 }}>Launch-Ready </span>
+                                    <span className="gradient-text" style={{ fontWeight: 600 }}>VIP Ticket</span>
+                                </h1>
+
+                                <p style={{
+                                    fontSize: '20px',
+                                    marginBottom: '32px',
+                                    lineHeight: '1.6'
+                                }}>
+                                    Turn the free Etsy AI challenge into a focused launch sprint so you show up confident,
+                                    get Bailey's help in a smaller room, and leave with listings that are actually ready to make sales.
+                                </p>
+
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '16px',
+                                    marginBottom: '32px'
+                                }}>
+                                    <BulletPoint icon="check-circle" color="sage">
+                                        Have your first product idea and "starter listings" mapped out before Day 1 even starts.
+                                    </BulletPoint>
+                                    <BulletPoint icon="check-circle" color="sage">
+                                        Know exactly what to do after each session instead of drowning in random notes.
+                                    </BulletPoint>
+                                    <BulletPoint icon="check-circle" color="sage">
+                                        Ask Bailey questions in a smaller VIP room instead of getting lost in the main chat.
+                                    </BulletPoint>
+                                </div>
+
+                                <div style={{
+                                    borderRadius: '16px',
+                                    overflow: 'hidden',
+                                    boxShadow: 'var(--shadow-card)',
+                                    position: 'relative',
+                                    aspectRatio: '16/9',
+                                    background: 'linear-gradient(135deg, #D4856A 0%, #C9935A 100%)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    marginTop: '32px'
+                                }}>
+                                    <div style={{
+                                        width: '64px',
+                                        height: '64px',
+                                        borderRadius: '50%',
+                                        background: 'var(--terracotta)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        cursor: 'pointer',
+                                        transition: 'transform 200ms ease'
+                                    }}>
+                                        <i data-lucide="play" style={{ color: 'white', width: '24px', height: '24px' }}></i>
+                                    </div>
+                                    <div style={{
+                                        position: 'absolute',
+                                        bottom: '20px',
+                                        left: '20px',
+                                        right: '20px',
+                                        color: 'white',
+                                        fontSize: '16px',
+                                        fontWeight: 500,
+                                        textAlign: 'center',
+                                        textShadow: '0 2px 8px rgba(0,0,0,0.3)'
+                                    }}>
+                                        Your VIP invite from Bailey is already playing – click to listen.
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Right Column - Sticky Card */}
+                            <div className="sticky-card" style={{ position: 'sticky', top: '106px' }}>
+                                <div className="card card-enhanced">
+                                    <div style={{ marginBottom: '16px' }}>
+                                        <span className="badge">VIP UPGRADE</span>
+                                    </div>
+
+                                    <div style={{
+                                        fontFamily: 'var(--font-heading)',
+                                        fontSize: '64px',
+                                        fontWeight: 600,
+                                        color: 'var(--burgundy-primary)',
+                                        marginBottom: '8px'
+                                    }}>
+                                        $97
+                                    </div>
+
+                                    <div style={{
+                                        fontSize: '15px',
+                                        color: 'var(--text-muted)',
+                                        marginBottom: '24px'
+                                    }}>
+                                        One-time investment
+                                    </div>
+
+                                    <div style={{
+                                        borderTop: '1px solid var(--border-light)',
+                                        paddingTop: '24px',
+                                        marginBottom: '24px'
+                                    }}>
+                                        <div style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: '12px'
+                                        }}>
+                                            <QuickBenefit>Pre-challenge starter kit</QuickBenefit>
+                                            <QuickBenefit>VIP-only Q&A with Bailey</QuickBenefit>
+                                            <QuickBenefit>Private WhatsApp group</QuickBenefit>
+                                        </div>
+                                    </div>
+
+                                    <div style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '16px'
+                                    }}>
+                                        <button className="btn-primary" style={{ width: '100%' }}>
+                                            YES, I WANT THE LAUNCH-READY VIP TICKET
+                                            <i data-lucide="arrow-right" style={{ width: '20px', height: '20px' }}></i>
+                                        </button>
+                                        <button className="btn-secondary" style={{ width: '100%' }}>
+                                            NO, I'LL STAY ON THE FREE TICKET ONLY
+                                        </button>
+                                    </div>
+
+                                    <div style={{
+                                        fontSize: '14px',
+                                        color: 'var(--text-muted)',
+                                        textAlign: 'center',
+                                        marginTop: '16px',
+                                        fontStyle: 'italic'
+                                    }}>
+                                        Backed by a 7-day money-back guarantee after the challenge (details below).
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* ========================================
+           HELPER COMPONENTS
+        ======================================== */
+        function BulletPoint({ icon, color, children }) {
+            const iconColor = color === 'sage' ? 'var(--sage-green)' :
+                             color === 'terracotta' ? 'var(--terracotta)' :
+                             'var(--text-primary)';
+
+            return (
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '12px'
+                }}>
+                    <i data-lucide={icon} style={{
+                        width: '24px',
+                        height: '24px',
+                        color: iconColor,
+                        flexShrink: 0,
+                        marginTop: '2px'
+                    }}></i>
+                    <span style={{ fontSize: '18px', lineHeight: '1.6' }}>{children}</span>
+                </div>
+            );
+        }
+
+        function QuickBenefit({ children }) {
+            return (
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                }}>
+                    <i data-lucide="check" style={{
+                        width: '16px',
+                        height: '16px',
+                        color: 'var(--sage-green)'
+                    }}></i>
+                    <span style={{ fontSize: '16px' }}>{children}</span>
+                </div>
+            );
+        }
+
+        /* ========================================
+           SECTION 2: TICKET COMPARISON
+        ======================================== */
+        function TicketComparison() {
+            return (
+                <section className="section" style={{ background: 'var(--white)' }}>
+                    <div className="container-cards">
+                        <h2 style={{
+                            textAlign: 'center',
+                            color: 'var(--burgundy-primary)',
+                            marginBottom: '48px'
+                        }}>
+                            Choose Your Ticket Type Below:
+                        </h2>
+
+                        <div className="two-col-grid" style={{
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gap: '32px'
+                        }}>
+                            {/* FREE TICKET */}
+                            <div className="card" style={{
+                                borderTop: '2px solid #E5E5E5',
+                                opacity: 0.95
+                            }}>
+                                <div style={{
+                                    fontSize: '24px',
+                                    fontWeight: 600,
+                                    marginBottom: '12px'
+                                }}>
+                                    FREE CHALLENGE TICKET
+                                </div>
+                                <div style={{
+                                    fontFamily: 'var(--font-heading)',
+                                    fontSize: '40px',
+                                    fontWeight: 600,
+                                    marginBottom: '32px'
+                                }}>
+                                    $0
+                                </div>
+
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '16px',
+                                    marginBottom: '32px'
+                                }}>
+                                    <FeatureItem type="check">Access to all 3 main challenge days</FeatureItem>
+                                    <FeatureItem type="check">Standard challenge workbook</FeatureItem>
+                                    <FeatureItem type="check">Access to the main community chat</FeatureItem>
+                                    <FeatureItem type="x">No pre-challenge "Launch Prep" starter kit</FeatureItem>
+                                    <FeatureItem type="x">No VIP-only implementation Q&A with Bailey</FeatureItem>
+                                    <FeatureItem type="x">No private VIP WhatsApp circle</FeatureItem>
+                                    <FeatureItem type="x">No VIP template & AI prompt vault</FeatureItem>
+                                    <FeatureItem type="x">No entry into VIP shop audit / 1-on-1 strategy call draw</FeatureItem>
+                                </div>
+
+                                <button className="btn-secondary" style={{
+                                    width: '100%',
+                                    marginBottom: '12px'
+                                }}>
+                                    NO, I WANT TO KEEP MY FREE TICKET
+                                </button>
+
+                                <div style={{
+                                    fontSize: '14px',
+                                    color: 'var(--text-muted)',
+                                    textAlign: 'center'
+                                }}>
+                                    You'll be redirected to the standard confirmation page and community link.
+                                </div>
+                            </div>
+
+                            {/* VIP TICKET */}
+                            <div className="card card-enhanced" style={{
+                                borderTop: '4px solid var(--terracotta)',
+                                position: 'relative',
+                                boxShadow: 'var(--shadow-enhanced), 0 0 32px rgba(212, 133, 106, 0.15)'
+                            }}>
+                                <div style={{
+                                    position: 'absolute',
+                                    top: '-12px',
+                                    left: '50%',
+                                    transform: 'translateX(-50%)'
+                                }}>
+                                    <span className="badge">BEST VALUE</span>
+                                </div>
+
+                                <div style={{
+                                    fontSize: '24px',
+                                    fontWeight: 600,
+                                    marginBottom: '12px'
+                                }}>
+                                    LAUNCH-READY VIP TICKET
+                                </div>
+                                <div style={{
+                                    fontFamily: 'var(--font-heading)',
+                                    fontSize: '40px',
+                                    fontWeight: 600,
+                                    marginBottom: '32px'
+                                }}>
+                                    $97
+                                </div>
+
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '16px',
+                                    marginBottom: '32px'
+                                }}>
+                                    <FeatureItem type="check" size="large">Everything in the free challenge ticket</FeatureItem>
+                                    <FeatureItem type="check" size="large">Pre-Challenge Shop Starter Kit (pick your niche + first product)</FeatureItem>
+                                    <FeatureItem type="check" size="large">VIP Challenge Workbook & AI Prompt Pack</FeatureItem>
+                                    <FeatureItem type="check" size="large">VIP-Only Implementation Q&A Call with Bailey</FeatureItem>
+                                    <FeatureItem type="check" size="large">Private VIP WhatsApp "Green Room" for extra support</FeatureItem>
+                                    <FeatureItem type="check" size="large">Extended replay access for all challenge + VIP sessions</FeatureItem>
+                                    <FeatureItem type="check" size="large">Entry into VIP shop audit + 1-on-1 strategy call giveaway</FeatureItem>
+                                    <FeatureItem type="check" size="large">Mystery VIP-only tool to launch your next listings faster</FeatureItem>
+                                </div>
+
+                                <button className="btn-primary" style={{
+                                    width: '100%',
+                                    marginBottom: '12px'
+                                }}>
+                                    YES, I WANT THE LAUNCH-READY VIP TICKET
+                                    <i data-lucide="arrow-right" style={{ width: '20px', height: '20px' }}></i>
+                                </button>
+
+                                <div style={{
+                                    fontSize: '14px',
+                                    color: 'var(--text-muted)',
+                                    textAlign: 'center'
+                                }}>
+                                    You'll be redirected to the secure checkout page to complete your upgrade.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style={{
+                            marginTop: '32px',
+                            textAlign: 'center',
+                            maxWidth: '800px',
+                            margin: '32px auto 0'
+                        }}>
+                            <p style={{
+                                fontSize: '16px',
+                                color: 'var(--text-muted)'
+                            }}>
+                                Regardless of which ticket you choose, check your email for the challenge details.
+                                VIPs will receive separate links for their extra sessions and WhatsApp group.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function FeatureItem({ type, size = 'normal', children }) {
+            const iconSize = size === 'large' ? '24px' : '20px';
+
+            return (
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '12px'
+                }}>
+                    <i data-lucide={type === 'check' ? 'check' : 'x'} style={{
+                        width: iconSize,
+                        height: iconSize,
+                        color: type === 'check' ? 'var(--sage-green)' : 'var(--muted-red)',
+                        flexShrink: 0,
+                        marginTop: '2px'
+                    }}></i>
+                    <span style={{ fontSize: '16px', lineHeight: '1.5' }}>{children}</span>
+                </div>
+            );
+        }
+
+        /* ========================================
+           SECTION 3: WHY UPGRADE NOW
+        ======================================== */
+        function WhyUpgrade() {
+            return (
+                <section className="section" style={{
+                    background: 'linear-gradient(180deg, var(--cream-base) 0%, #FFF5F0 100%)'
+                }}>
+                    <div className="container-text">
+                        <h2 style={{
+                            textAlign: 'center',
+                            color: 'var(--burgundy-primary)',
+                            marginBottom: '24px'
+                        }}>
+                            Why Upgrade to VIP Before the Challenge Starts
+                        </h2>
+
+                        <p style={{
+                            fontSize: '20px',
+                            textAlign: 'center',
+                            maxWidth: '720px',
+                            margin: '0 auto 48px'
+                        }}>
+                            The free challenge will give you ideas. The Launch-Ready VIP Ticket is built to make sure
+                            those ideas turn into real listings, real momentum, and a shop that doesn't stay stuck in
+                            "I'll do it later."
+                        </p>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '24px',
+                            maxWidth: '640px',
+                            margin: '0 auto 48px'
+                        }}>
+                            <BulletPoint icon="arrow-right" color="terracotta">
+                                You'll show up already knowing your niche and first product instead of staring at a blank screen.
+                            </BulletPoint>
+                            <BulletPoint icon="arrow-right" color="terracotta">
+                                You'll follow a VIP workbook that tells you exactly what to implement after each session.
+                            </BulletPoint>
+                            <BulletPoint icon="arrow-right" color="terracotta">
+                                You'll have a small room to ask Bailey questions live, instead of competing with hundreds of comments.
+                            </BulletPoint>
+                            <BulletPoint icon="arrow-right" color="terracotta">
+                                You'll plug into a VIP WhatsApp circle where everyone is actually launching, not just watching.
+                            </BulletPoint>
+                        </div>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '16px',
+                            alignItems: 'center'
+                        }}>
+                            <button className="btn-primary">
+                                YES, I WANT THE LAUNCH-READY VIP TICKET
+                                <i data-lucide="arrow-right" style={{ width: '20px', height: '20px' }}></i>
+                            </button>
+                            <button className="btn-secondary">
+                                NO, I'LL STAY ON THE FREE TICKET ONLY
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* ========================================
+           SECTION 4: WHAT'S INSIDE
+        ======================================== */
+        function WhatsInside() {
+            const components = [
+                {
+                    number: 1,
+                    title: "Pre-Challenge Shop Starter Kit",
+                    description: "As soon as you upgrade, you'll unlock a short "Day 0" video and checklist that walks you through choosing your niche, deciding your first product, and setting up the basics so you're not scrambling on Day 1.",
+                    bullets: [
+                        "Decide your product lane without overthinking or second-guessing.",
+                        "Pick a simple first offer you can actually finish in a weekend.",
+                        "Set up your Etsy + Canva + AI stack so the challenge feels like implementation, not tech setup."
+                    ],
+                    imagePosition: 'left'
+                },
+                {
+                    number: 2,
+                    title: "VIP Challenge Workbook & AI Prompt Pack",
+                    description: "Free attendees get a simple note-taking guide. VIPs get Bailey's implementation workbook plus plug-and-play AI prompts for titles, descriptions, and product ideas so you can move from "learning" to "publishing" fast.",
+                    bullets: [
+                        "Daily pages that tell you exactly what to do after each session.",
+                        "Copy-paste AI prompts for product ideas, SEO keywords, and listing descriptions.",
+                        "Space to plan your first 5–10 products so you leave the challenge with an actual roadmap."
+                    ],
+                    imagePosition: 'right'
+                },
+                {
+                    number: 3,
+                    title: "VIP-Only Implementation Q&A with Bailey",
+                    description: "Towards the end of the challenge (Day 2 or 3), VIPs get their own live call where Bailey answers questions only from VIP members and helps you lock in your next steps.",
+                    bullets: [
+                        "Smaller room – only VIPs can submit questions.",
+                        "Get feedback on your niche, product ideas, or early listings.",
+                        "Leave with a clear "next 7 days" implementation plan for your shop."
+                    ],
+                    note: "This session is not available to free attendees.",
+                    imagePosition: 'left'
+                },
+                {
+                    number: 4,
+                    title: "Private VIP WhatsApp "Green Room"",
+                    description: "VIPs are invited into a private WhatsApp circle for the duration of the challenge so you're surrounded by people who actually plan to launch, not just lurk.",
+                    bullets: [
+                        "Daily reminders so you don't miss sessions or deadlines.",
+                        "Mini prompts and check-ins to keep you implementing between calls.",
+                        "Extra nudges and behind-the-scenes notes from Bailey's team on what to focus on next."
+                    ],
+                    imagePosition: 'right'
+                },
+                {
+                    number: 5,
+                    title: "Extended Replays, VIP Prizes & a Mystery Launch Tool",
+                    description: "VIPs get longer access to replays, a shot at personalized help, and one surprise tool designed to make launching your next listings feel 10x lighter.",
+                    bullets: [
+                        "Extended replay access for all challenge sessions + the VIP Q&A.",
+                        "Automatic entry into a draw for live shop audits and a limited number of 1-on-1 strategy calls with Bailey.",
+                        "Mystery VIP-only tool (template/system) that helps you go from idea → finished listing in record time."
+                    ],
+                    imagePosition: 'center'
+                }
+            ];
+
+            return (
+                <section className="section" style={{ background: 'var(--white)' }}>
+                    <div className="container">
+                        <h2 style={{
+                            textAlign: 'center',
+                            color: 'var(--burgundy-primary)',
+                            marginBottom: '64px'
+                        }}>
+                            Here's Everything You Get With Your Launch-Ready VIP Ticket
+                        </h2>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '64px'
+                        }}>
+                            {components.map((component, index) => (
+                                <ComponentCard key={index} {...component} />
+                            ))}
+                        </div>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '16px',
+                            alignItems: 'center',
+                            marginTop: '64px'
+                        }}>
+                            <button className="btn-primary">
+                                YES, I WANT THE LAUNCH-READY VIP TICKET
+                                <i data-lucide="arrow-right" style={{ width: '20px', height: '20px' }}></i>
+                            </button>
+                            <button className="btn-secondary">
+                                NO, I'LL STAY ON THE FREE TICKET ONLY
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function ComponentCard({ number, title, description, bullets, note, imagePosition }) {
+            const isCenter = imagePosition === 'center';
+            const isLeft = imagePosition === 'left';
+
+            if (isCenter) {
+                return (
+                    <div style={{
+                        maxWidth: '960px',
+                        margin: '0 auto'
+                    }}>
+                        <div style={{
+                            width: '100%',
+                            aspectRatio: '16/9',
+                            background: 'linear-gradient(135deg, #D4856A 0%, #C9935A 100%)',
+                            borderRadius: '12px',
+                            marginBottom: '32px',
+                            boxShadow: '0 4px 16px rgba(45, 45, 45, 0.08)'
+                        }} />
+                        <div style={{ textAlign: 'center' }}>
+                            <div className="component-number" style={{
+                                width: '56px',
+                                height: '56px',
+                                borderRadius: '50%',
+                                background: 'var(--terracotta)',
+                                color: 'white',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '24px',
+                                fontFamily: 'var(--font-heading)',
+                                margin: '0 auto 16px'
+                            }} aria-label={`Component ${number}`}>
+                                {number}
+                            </div>
+                            <h3 style={{
+                                color: 'var(--burgundy-primary)',
+                                marginBottom: '16px'
+                            }}>
+                                {title}
+                            </h3>
+                            <p style={{ marginBottom: '24px' }}>{description}</p>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '12px',
+                                textAlign: 'left',
+                                maxWidth: '640px',
+                                margin: '0 auto'
+                            }}>
+                                {bullets.map((bullet, i) => (
+                                    <BulletPoint key={i} icon="check" color="sage">
+                                        {bullet}
+                                    </BulletPoint>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="component-grid" style={{
+                    display: 'grid',
+                    gridTemplateColumns: isLeft ? '45% 50%' : '50% 45%',
+                    gap: '5%',
+                    alignItems: 'center'
+                }}>
+                    {isLeft && <ComponentImage />}
+                    <div>
+                        <div className="component-number" style={{
+                            width: '56px',
+                            height: '56px',
+                            borderRadius: '50%',
+                            background: 'var(--terracotta)',
+                            color: 'white',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '24px',
+                            fontFamily: 'var(--font-heading)',
+                            marginBottom: '16px'
+                        }} aria-label={`Component ${number}`}>
+                            {number}
+                        </div>
+                        <h3 style={{
+                            color: 'var(--burgundy-primary)',
+                            marginBottom: '16px'
+                        }}>
+                            {title}
+                        </h3>
+                        <p style={{ marginBottom: '24px' }}>{description}</p>
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '12px'
+                        }}>
+                            {bullets.map((bullet, i) => (
+                                <BulletPoint key={i} icon="check" color="sage">
+                                    {bullet}
+                                </BulletPoint>
+                            ))}
+                        </div>
+                        {note && (
+                            <div style={{
+                                fontSize: '15px',
+                                color: 'var(--terracotta)',
+                                fontStyle: 'italic',
+                                marginTop: '16px'
+                            }}>
+                                {note}
+                            </div>
+                        )}
+                    </div>
+                    {!isLeft && <ComponentImage />}
+                </div>
+            );
+        }
+
+        function ComponentImage() {
+            return (
+                <div style={{
+                    aspectRatio: '4/3',
+                    background: 'linear-gradient(135deg, #D4856A 0%, #C9935A 100%)',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 16px rgba(45, 45, 45, 0.08)'
+                }} />
+            );
+        }
+
+        /* ========================================
+           SECTION 5: GUARANTEE BLOCK
+        ======================================== */
+        function GuaranteeBlock() {
+            return (
+                <section className="section" style={{
+                    background: 'var(--burgundy-primary)',
+                    position: 'relative'
+                }}>
+                    <div className="guarantee-watermark" style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        fontSize: '120px',
+                        fontFamily: 'var(--font-heading)',
+                        color: 'rgba(255, 255, 255, 0.08)',
+                        fontWeight: 600,
+                        pointerEvents: 'none',
+                        zIndex: 0
+                    }} aria-hidden="true">
+                        100%
+                    </div>
+
+                    <div className="container-text" style={{ position: 'relative', zIndex: 1 }}>
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            marginBottom: '16px'
+                        }}>
+                            <span className="badge">100% GUARANTEE</span>
+                        </div>
+
+                        <h2 style={{
+                            textAlign: 'center',
+                            color: 'white',
+                            marginBottom: '24px'
+                        }}>
+                            100% Money-Back Guarantee – Try VIP for the Entire Challenge
+                        </h2>
+
+                        <div style={{
+                            fontSize: '18px',
+                            color: 'rgba(255, 255, 255, 0.85)',
+                            textAlign: 'center',
+                            maxWidth: '720px',
+                            margin: '0 auto 48px',
+                            lineHeight: '1.6'
+                        }}>
+                            <p style={{ marginBottom: '16px' }}>
+                                Join the Launch-Ready VIP Experience, use the starter kit, follow the workbook,
+                                and attend the VIP Q&A.
+                            </p>
+                            <p style={{ marginBottom: '16px' }}>
+                                If, within 7 days after the final challenge session, you don't feel clearly closer
+                                to an Etsy shop that can actually make sales, email us at support@baileysvann.com and
+                                we'll refund 100% of your VIP ticket.
+                            </p>
+                            <p>
+                                No awkward questions. No hoops. Just a simple, honest guarantee.
+                            </p>
+                        </div>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '16px',
+                            alignItems: 'center'
+                        }}>
+                            <button className="btn-primary btn-inverted">
+                                YES, I WANT THE LAUNCH-READY VIP TICKET
+                                <i data-lucide="arrow-right" style={{ width: '20px', height: '20px' }}></i>
+                            </button>
+                            <button className="btn-secondary btn-inverted-secondary">
+                                NO, I'LL STAY ON THE FREE TICKET ONLY
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* ========================================
+           SECTION 6: IS THIS FOR YOU?
+        ======================================== */
+        function IsThisForYou() {
+            return (
+                <section className="section" style={{ background: 'var(--cream-base)' }}>
+                    <div className="container-cards">
+                        <h2 style={{
+                            textAlign: 'center',
+                            color: 'var(--burgundy-primary)',
+                            marginBottom: '48px'
+                        }}>
+                            Is the Launch-Ready VIP Ticket For You?
+                        </h2>
+
+                        <div className="two-col-grid" style={{
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gap: '48px'
+                        }}>
+                            {/* Perfect For You */}
+                            <div className="card" style={{
+                                borderTop: '4px solid var(--sage-green)'
+                            }}>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    marginBottom: '16px'
+                                }}>
+                                    <i data-lucide="check-circle" style={{
+                                        width: '40px',
+                                        height: '40px',
+                                        color: 'var(--sage-green)'
+                                    }}></i>
+                                </div>
+                                <h3 style={{
+                                    fontSize: '24px',
+                                    fontWeight: 600,
+                                    marginBottom: '16px',
+                                    textAlign: 'center'
+                                }}>
+                                    Perfect for you if...
+                                </h3>
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '16px'
+                                }}>
+                                    <BulletPoint icon="check" color="sage">
+                                        You're serious about launching or relaunching your Etsy shop in the next 30–60 days.
+                                    </BulletPoint>
+                                    <BulletPoint icon="check" color="sage">
+                                        You don't want to waste the challenge just taking notes you never open again.
+                                    </BulletPoint>
+                                    <BulletPoint icon="check" color="sage">
+                                        You want Bailey's eyes on your situation, even if it's just through the VIP Q&A.
+                                    </BulletPoint>
+                                    <BulletPoint icon="check" color="sage">
+                                        You like having prompts, templates, and checklists instead of figuring everything out alone.
+                                    </BulletPoint>
+                                </div>
+                            </div>
+
+                            {/* Probably Not For You */}
+                            <div className="card" style={{
+                                borderTop: '4px solid var(--muted-red)',
+                                opacity: 0.9
+                            }}>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    marginBottom: '16px'
+                                }}>
+                                    <i data-lucide="x-circle" style={{
+                                        width: '40px',
+                                        height: '40px',
+                                        color: 'var(--muted-red)'
+                                    }}></i>
+                                </div>
+                                <h3 style={{
+                                    fontSize: '24px',
+                                    fontWeight: 600,
+                                    marginBottom: '16px',
+                                    textAlign: 'center'
+                                }}>
+                                    Probably not for you if...
+                                </h3>
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: '16px'
+                                }}>
+                                    <BulletPoint icon="x" color="muted-red">
+                                        You're just curious and don't plan to list products anytime soon.
+                                    </BulletPoint>
+                                    <BulletPoint icon="x" color="muted-red">
+                                        You're only interested in watching, not implementing.
+                                    </BulletPoint>
+                                    <BulletPoint icon="x" color="muted-red">
+                                        Investing a small amount to move faster and feel more certain doesn't feel aligned right now.
+                                    </BulletPoint>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style={{
+                            marginTop: '32px',
+                            textAlign: 'center',
+                            maxWidth: '800px',
+                            margin: '32px auto 32px'
+                        }}>
+                            <p style={{
+                                fontSize: '17px',
+                                color: 'var(--text-muted)',
+                                fontStyle: 'italic'
+                            }}>
+                                If you're on the fence, grab the VIP ticket now while it's available.
+                                You're fully protected by the guarantee.
+                            </p>
+                        </div>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '16px',
+                            alignItems: 'center'
+                        }}>
+                            <button className="btn-primary">
+                                YES, I WANT THE LAUNCH-READY VIP TICKET
+                                <i data-lucide="arrow-right" style={{ width: '20px', height: '20px' }}></i>
+                            </button>
+                            <button className="btn-secondary">
+                                NO, I'LL STAY ON THE FREE TICKET ONLY
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function BulletPointX({ icon, color, children }) {
+            const getColor = (colorName) => {
+                if (colorName === 'sage') return 'var(--sage-green)';
+                if (colorName === 'muted-red') return 'var(--muted-red)';
+                if (colorName === 'terracotta') return 'var(--terracotta)';
+                return 'var(--text-primary)';
+            };
+
+            return (
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '12px'
+                }}>
+                    <i data-lucide={icon} style={{
+                        width: '20px',
+                        height: '20px',
+                        color: getColor(color),
+                        flexShrink: 0,
+                        marginTop: '2px'
+                    }}></i>
+                    <span style={{ fontSize: '18px', lineHeight: '1.6' }}>{children}</span>
+                </div>
+            );
+        }
+
+        /* ========================================
+           SECTION 7: FAQ
+        ======================================== */
+        function FAQ() {
+            const [openIndex, setOpenIndex] = useState(null);
+
+            const faqs = [
+                {
+                    question: "What exactly do I get when I upgrade to VIP?",
+                    answer: "You get everything in the free challenge ticket, plus the Pre-Challenge Shop Starter Kit, the VIP Workbook & AI Prompt Pack, the VIP-only Implementation Q&A with Bailey, the private WhatsApp "Green Room," extended replays, entry into the VIP shop audit / 1-on-1 draw, and a surprise launch tool just for VIPs."
+                },
+                {
+                    question: "What if I can't attend the VIP Q&A live?",
+                    answer: "Don't worry. VIPs get a replay of the session, and you'll be able to pre-submit questions so Bailey's answers are still relevant to you."
+                },
+                {
+                    question: "Is the VIP content different from the free challenge?",
+                    answer: "Yes. The free challenge teaches the core concepts. The VIP ticket focuses on preparation, implementation, extra support, and more direct access so you actually launch."
+                },
+                {
+                    question: "How long do I have access to the VIP materials?",
+                    answer: "The starter kit, templates and prompts are yours to keep. Replays for the challenge + VIP Q&A will be available for 30 days after the challenge ends."
+                },
+                {
+                    question: "Can I upgrade to VIP later?",
+                    answer: "We recommend upgrading now. Once the challenge starts, we may close VIP or increase the price to keep group size manageable."
+                },
+                {
+                    question: "What if I decide VIP isn't for me?",
+                    answer: "You're covered by the 7-day money-back guarantee after the challenge. If you don't feel clearly closer to a real, launch-ready shop, email support@baileysvann.com and we'll refund your ticket."
+                },
+                {
+                    question: "Do I need to be techy or good at design for this to work?",
+                    answer: "No. Bailey designed the challenge and VIP materials for creative beginners. The templates and prompts are simple, and you'll see everything broken down step-by-step."
+                }
+            ];
+
+            return (
+                <section className="section" style={{ background: 'var(--white)' }}>
+                    <div className="container-text">
+                        <h2 style={{
+                            textAlign: 'center',
+                            color: 'var(--burgundy-primary)',
+                            marginBottom: '64px'
+                        }}>
+                            Frequently Asked Questions About the Launch-Ready VIP Ticket
+                        </h2>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '16px'
+                        }}>
+                            {faqs.map((faq, index) => (
+                                <FAQItem
+                                    key={index}
+                                    question={faq.question}
+                                    answer={faq.answer}
+                                    isOpen={openIndex === index}
+                                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                                />
+                            ))}
+                        </div>
+
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '16px',
+                            alignItems: 'center',
+                            marginTop: '64px'
+                        }}>
+                            <button className="btn-primary">
+                                YES, I WANT THE LAUNCH-READY VIP TICKET
+                                <i data-lucide="arrow-right" style={{ width: '20px', height: '20px' }}></i>
+                            </button>
+                            <button className="btn-secondary">
+                                NO, I'LL STAY ON THE FREE TICKET ONLY
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        function FAQItem({ question, answer, isOpen, onClick }) {
+            return (
+                <div
+                    className="card"
+                    style={{
+                        padding: isOpen ? '24px' : '20px',
+                        cursor: 'pointer',
+                        transition: 'all 300ms ease'
+                    }}
+                    onClick={onClick}
+                    role="button"
+                    aria-expanded={isOpen}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            onClick();
+                        }
+                    }}
+                >
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        gap: '16px'
+                    }}>
+                        <div className="faq-question" style={{
+                            fontSize: '20px',
+                            fontWeight: 600,
+                            color: 'var(--text-primary)'
+                        }}>
+                            {question}
+                        </div>
+                        <i data-lucide={isOpen ? 'minus' : 'plus'} style={{
+                            width: '24px',
+                            height: '24px',
+                            color: 'var(--terracotta)',
+                            flexShrink: 0
+                        }}></i>
+                    </div>
+                    {isOpen && (
+                        <div className="faq-answer" style={{
+                            fontSize: '18px',
+                            color: 'var(--text-muted)',
+                            marginTop: '16px',
+                            lineHeight: '1.6'
+                        }}>
+                            {answer}
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        /* ========================================
+           MAIN APP
+        ======================================== */
+        function App() {
+            useEffect(() => {
+                // Initialize Lucide icons after component mounts
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+            }, []);
+
+            return (
+                <>
+                    <AlertBar />
+                    <Hero />
+                    <TicketComparison />
+                    <WhyUpgrade />
+                    <WhatsInside />
+                    <GuaranteeBlock />
+                    <IsThisForYou />
+                    <FAQ />
+                </>
+            );
+        }
+
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+
+        // Re-initialize Lucide icons whenever the DOM updates
+        const observer = new MutationObserver(() => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    </script>
+</body>
+</html>
